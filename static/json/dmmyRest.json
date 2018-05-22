@@ -1,0 +1,824 @@
+{
+  "@attributes": {
+    "api_version": "20150630"
+  },
+  "total_hit_count": "206",
+  "hit_per_page": "10",
+  "page_offset": "1",
+  "rest": [
+    {
+      "@attributes": {
+        "order": "0"
+      },
+      "id": "h642303",
+      "update_date": "2017-09-04 06:02:14",
+      "name": "産地直送 北海道 札幌駅前店",
+      "name_kana": "サンチチョクソウホッカイドウ サッポロエキマエテン",
+      "latitude": "43.066342",
+      "longitude": "141.358369",
+      "category": "北海道海鮮個室居酒屋",
+      "url": "https://r.gnavi.co.jp/h642303/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h642303/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/h642303/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h642303/coupon"
+      },
+      "image_url": {
+        "shop_image1": "https://uds.gnst.jp/rest/img/58ce0raj0000/t_003i.jpg",
+        "shop_image2": "https://uds.gnst.jp/rest/img/58ce0raj0000/t_003j.jpg",
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h642303&q=6"
+      },
+      "address": "〒060-0806 北海道札幌市北区北6条西1",
+      "tel": "050-3463-3743",
+      "tel_sub": "011-206-0820",
+      "fax": "011-758-0820",
+      "opentime": "月～日 17:00～24:00(L.O.23:00、ドリンクL.O.23:30)(※ご予約・お問い合わせのお電話は午後12時より受付しております。  ※営業時間外の宴会・パーティ等も承りますので、ぜひお問い合わせください。)<BR>月～日・祝前日・祝日 ランチ：11:00～14:30(L.O.14:00)",
+      "holiday": "無<BR>※《年末年始休まず営業》",
+      "access": {
+        "line": "ＪＲ函館本線",
+        "station": "札幌駅",
+        "station_exit": {},
+        "walk": "1",
+        "note": {}
+      },
+      "parking_lots": {},
+      "pr": {
+        "pr_short": "120分飲み放題699円！ 圧巻の400席完全個室46部屋！宴会最大160名様OK！ 飲放付ご宴会コース2,500円〜",
+        "pr_long": "【札幌駅より徒歩1分】<BR>■北海道食材が満喫<BR> 北海道の海鮮浜焼きや炉端料理はもちろん<BR>お通しの【まぐろ】は毎月店内で解体ショーを行なっています。<BR>店内の巨大生簀ではボタン海老が悠々と泳ぎ<BR> 生産者直送の新鮮野菜のビュッフェもあります。<BR>■名物料理のご紹介<BR>【名物！生簀からお届け】鮮度バツグン！活車エビの踊り食い<BR>【豪華三大カニ料理】<BR>【名物！マグロ料理】新鮮生マグロの食べ比べ！赤身・漬け・トロ<BR><BR>◆◇◆◇ ご宴会特典♪♪ ◆◇◆◇<BR>今ならご宴会予約でお一人様１，０００円引き！<BR>この機会に当店の海鮮料理をお楽しみ下さい！<BR>■400席の店内<BR>これからの宴会シーンにお勧めしたい<BR>最大160名まで利用できる大人数宴会場<BR> 貸切ではおよそ４００名まで収容可能となります。"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST09000",
+          "RSFST03000"
+        ],
+        "category_name_l": [
+          "居酒屋",
+          "すし・魚料理・シーフード"
+        ],
+        "category_code_s": [
+          "RSFST09004",
+          "RSFST03003"
+        ],
+        "category_name_s": [
+          "居酒屋",
+          "刺身・海鮮料理"
+        ]
+      },
+      "budget": "3500",
+      "party": "3500",
+      "lunch": "700",
+      "credit_card": "VISA,MasterCard,UC,ダイナースクラブ,アメリカン・エキスプレス,JCB,アプラス,セゾン,銀聯,MUFG",
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    },
+    {
+      "@attributes": {
+        "order": "1"
+      },
+      "id": "h076714",
+      "update_date": "2017-09-12 01:43:47",
+      "name": "イタリアン CIRCO ‐チルコ‐ 札幌駅前",
+      "name_kana": "イタリアンチルコ サッポロエキマエ",
+      "latitude": "43.064461",
+      "longitude": "141.356858",
+      "category": "貸切パーティー 夜景",
+      "url": "https://r.gnavi.co.jp/h076714/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h076714/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/h076714/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h076714/coupon"
+      },
+      "image_url": {
+        "shop_image1": "https://uds.gnst.jp/rest/img/3kpkna540000/t_002y.jpg",
+        "shop_image2": "https://uds.gnst.jp/rest/img/3kpkna540000/t_002z.jpg",
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h076714&q=6"
+      },
+      "address": "〒060-0004 北海道札幌市中央区北4条西2 札幌TRビル3F",
+      "tel": "050-3464-7921",
+      "tel_sub": "011-252-3388",
+      "fax": "011-252-3388",
+      "opentime": " ディナー：17:00～24:00(L.O.23:00)",
+      "holiday": "無",
+      "access": {
+        "line": "札幌市営地下鉄",
+        "station": "さっぽろ駅",
+        "station_exit": "19番出口",
+        "walk": "1",
+        "note": {}
+      },
+      "parking_lots": {},
+      "pr": {
+        "pr_short": "●札幌駅1分● 【飲放題付】3500～6000円 【夜景個室】10～50名対応 【貸切PARTY】70～200名対応 サプライズ！窯焼ピッツァ、チーズフォンデュも◎！",
+        "pr_long": "●赤6種、白6種、スパークリング2種、果実たっぷりサングリア5種、ヱビス生ビール2種含む！<BR>超充実！飲放題 クーポンご利用で 1,800円（1,500円コースも有り）！<BR>【宴会プラン】<BR>■10名、20名、30名、50名の個室完備！全120席・仕切りのない店内はレイアウト自由！70名様～貸切応相談！<BR>■シーンに合わせて全6タイプ3,500円～！14種のボトルワイン(赤・白・スパークリング)も飲み放題<BR>【記念日・誕生日にサプライズ】<BR>■クーポンで、①メッセージ＆花火付手造りケーキ ②記念写真撮影 ③生演奏！<BR>【自慢のトマト】<BR>イタリアンはトマトが命！北海道三笠産・当麻産『シシリアンルージュ（地中海トマト）』を使用♪お客様が口にする度に驚きの反響多数！<BR>【札駅で唯一、毎日生演奏のお店】<BR>19:00～/20:30～の2ステージ"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST11000",
+          "RSFST09000"
+        ],
+        "category_name_l": [
+          "イタリアン・フレンチ",
+          "居酒屋"
+        ],
+        "category_code_s": [
+          "RSFST11002",
+          "RSFST09004"
+        ],
+        "category_name_s": [
+          "イタリアン(イタリア料理)",
+          "居酒屋"
+        ]
+      },
+      "budget": "3000",
+      "party": "4000",
+      "lunch": {},
+      "credit_card": "VISA,MasterCard,DC,UFJ,NICOS,MUFG",
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    },
+    {
+      "@attributes": {
+        "order": "2"
+      },
+      "id": "h871002",
+      "update_date": "2017-09-12 17:19:42",
+      "name": "隠れ家個室居酒屋 縁 ‐enishi‐ 札幌駅前店",
+      "name_kana": "カクレガコシツイザカヤエニシ サッポロエキマエテン",
+      "latitude": "43.061564",
+      "longitude": "141.355328",
+      "category": "隠れ家個室×海鮮居酒屋",
+      "url": "https://r.gnavi.co.jp/kb7d84hs0000/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h871002/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/kb7d84hs0000/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h871002/coupon"
+      },
+      "image_url": {
+        "shop_image1": "https://uds.gnst.jp/rest/img/kb7d84hs0000/t_0n5c.jpg",
+        "shop_image2": {},
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h871002&q=6"
+      },
+      "address": "〒060-0002 北海道札幌市中央区北2条西3-1-18 第25桂和ビル5・6F",
+      "tel": "050-3477-3881",
+      "tel_sub": "011-213-1993",
+      "fax": {},
+      "opentime": "月～金・祝前日 ディナー：17:00～24:00(L.O.23:00、ドリンクL.O.23:30)<BR>土・日・祝 16:00～24:00(L.O.23:00、ドリンクL.O.23:30)",
+      "holiday": "年中無休",
+      "access": {
+        "line": "札幌市営地下鉄南北線",
+        "station": "さっぽろ駅",
+        "station_exit": {},
+        "walk": "3",
+        "note": {}
+      },
+      "parking_lots": {},
+      "pr": {
+        "pr_short": "札幌駅徒歩2分！隠れ家個室×海鮮居酒屋 【ご宴会】飲み放題付きコース7品3000円～ 個室3名様～40名様迄 各種宴会シーンに◎",
+        "pr_long": "◎ 店内空間 ◎<BR>テーブル席・お座敷席・カウンター席など様々な席タイプをご用意！<BR>半個室・完全個室は席に限りがございますのでお早めにご予約を！<BR>最大40名迄の個室をご用意してお待ちしております！<BR>◎ おすすめメニュー ◎<BR>【期間限定】90分飲み放題プラン⇒980円！<BR>中央卸売市場直送の新鮮な魚をふんだんに使用！<BR>当店自慢のマグロの断面刺しや鮪カマの鉄板焼きは必見！<BR>特大ホッケ焼き、色々貝の出汁風呂といった人気の海鮮メニューも多数ご用意。<BR>縁では、誕生日・記念日のメッセージプレートをご用意☆<BR>誕生日・記念日を忘れられない思い出に…☆"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST09000",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_name_l": [
+          "居酒屋",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_code_s": [
+          "RSFST09004",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_name_s": [
+          "居酒屋",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ]
+      },
+      "budget": "3500",
+      "party": "3500",
+      "lunch": {},
+      "credit_card": {},
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    },
+    {
+      "@attributes": {
+        "order": "3"
+      },
+      "id": "h098600",
+      "update_date": "2017-09-01 01:29:36",
+      "name": "串屋 ",
+      "name_kana": "クシヤ",
+      "latitude": "43.063619",
+      "longitude": "141.351544",
+      "category": "居心地の良い店",
+      "url": "https://r.gnavi.co.jp/h098600/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h098600/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/h098600/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h098600/coupon"
+      },
+      "image_url": {
+        "shop_image1": {},
+        "shop_image2": "https://uds.gnst.jp/rest/img/5vjbphzb0000/t_008l.jpg",
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h098600&q=6"
+      },
+      "address": "〒060-0004 北海道札幌市中央区北4条西5 アスティ45 B1",
+      "tel": "050-3462-5416",
+      "tel_sub": "011-205-6616",
+      "fax": "011-232-7856",
+      "opentime": "月～土 17:00～23:00",
+      "holiday": "毎週日曜日 祝日<BR>夏期休暇（2017年8月13日～2017年8月15日）",
+      "access": {
+        "line": "ＪＲ",
+        "station": "札幌駅",
+        "station_exit": "南口",
+        "walk": "1",
+        "note": {}
+      },
+      "parking_lots": "70",
+      "pr": {
+        "pr_short": "歓送迎会承ります 宴会コース幹事様1名無料(8名様以上のご宴会・現金会計に限る) 掘り炬燵の個室2名様からＯＫ",
+        "pr_long": "◎札幌駅（ＪＲ・地下鉄）から地下道直結！<BR>★バリエーション豊富な宴会コースをご用意しています。<BR>■お得な料理8品２時間飲み放題コースが５，０００円<BR>＊クーポン御利用できます。<BR>■10～20名様のご宴会もお任せ下さい！<BR>ご予算などのご相談は御気軽にどうぞ♪<BR><BR>★備長炭で焼く自慢の串焼・京風おでん・新鮮魚介のお刺身に<BR> 炙り焼きなど数々の料理と旨い酒を気軽に楽しめるお店です！<BR>★地酒と本格焼酎も豊富です<BR>地酒の開栓後は、瓶の空気を抜いて鮮度を保っています。本格焼酎の割り水はニセコの甘露の名水を。美味しい水でより美味しく！"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST06000",
+          "RSFST01000"
+        ],
+        "category_name_l": [
+          "焼き鳥・肉料理・串料理",
+          "和食"
+        ],
+        "category_code_s": [
+          "RSFST06012",
+          "RSFST01003"
+        ],
+        "category_name_s": [
+          "串焼き",
+          "おでん"
+        ]
+      },
+      "budget": "4000",
+      "party": "4500",
+      "lunch": {},
+      "credit_card": "VISA,MasterCard,UC,DC,ダイナースクラブ,アメリカン・エキスプレス,JCB,MUFG",
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    },
+    {
+      "@attributes": {
+        "order": "4"
+      },
+      "id": "h706800",
+      "update_date": "2017-09-12 00:35:17",
+      "name": "釜めし・やきとり はん 札幌大丸店",
+      "name_kana": "カマメシヤキトリハン サッポロダイマルテン",
+      "latitude": "43.065231",
+      "longitude": "141.353128",
+      "category": "釜めし・焼とり・居酒屋",
+      "url": "https://r.gnavi.co.jp/h706800/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h706800/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/h706800/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h706800/coupon"
+      },
+      "image_url": {
+        "shop_image1": "https://uds.gnst.jp/rest/img/263jzy980000/t_002h.jpg",
+        "shop_image2": "https://uds.gnst.jp/rest/img/263jzy980000/t_002i.jpg",
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h706800&q=6"
+      },
+      "address": "〒060-0005 北海道札幌市中央区北五条西4-7 大丸札幌店8F",
+      "tel": "011-252-3451",
+      "tel_sub": {},
+      "fax": "011-252-3451",
+      "opentime": "月～日 11:00～22:00(L.O.21:00)",
+      "holiday": "不定休日あり<BR>※1/1大丸札幌店休館の為  お休みとなります",
+      "access": {
+        "line": "ＪＲ函館本線",
+        "station": "札幌駅",
+        "station_exit": {},
+        "walk": "1",
+        "note": {}
+      },
+      "parking_lots": "3000",
+      "pr": {
+        "pr_short": "厳選した食材で作る釜めしと炭火で焼き上げる焼き鳥は絶品♪ 札幌駅直通の大丸８Ｆレストランなのでアクセスは抜群です！",
+        "pr_long": "厳選した食材を特製のだしで一個一個丁寧に炊き上げた釜めしと<BR>炭火焼き鳥がオススメのお店です。<BR>他にもお食事、おつまみ、各種アルコールも取り揃えております。<BR>★平日 15時～18時 限定！！ハッピーアワー★<BR>ビール 通常514円がなんと半額 257円！！<BR>釜飯と一緒にいかかですか？今ひそかに人気です♪<BR><BR>コースは２時間飲み放題付きで３９８０円クーポン利用すると２９８０円（税込）です。"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST09000",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_name_l": [
+          "居酒屋",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_code_s": [
+          "RSFST09004",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_name_s": [
+          "居酒屋",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ]
+      },
+      "budget": "2500",
+      "party": "3300",
+      "lunch": "1500",
+      "credit_card": "VISA,UC,DC,アメリカン・エキスプレス,JCB,NICOS,セゾン,MUFG",
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    },
+    {
+      "@attributes": {
+        "order": "5"
+      },
+      "id": "h726901",
+      "update_date": "2017-09-02 01:41:25",
+      "name": "うおや一丁 札幌駅店",
+      "name_kana": "ウオヤイッチョウ サッポロエキテン",
+      "latitude": "43.066328",
+      "longitude": "141.357922",
+      "category": "札幌個室居酒屋海鮮宴会",
+      "url": "https://r.gnavi.co.jp/h726901/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h726901/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/h726901/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h726901/coupon"
+      },
+      "image_url": {
+        "shop_image1": {},
+        "shop_image2": "https://uds.gnst.jp/rest/img/3w9yvh330000/t_009c.jpg",
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h726901&q=6"
+      },
+      "address": "〒060-0806 北海道札幌市北区北6条西1",
+      "tel": "050-3469-5420",
+      "tel_sub": "011-232-0022",
+      "fax": {},
+      "opentime": "月～日 16:00～24:00<BR>月～日 ランチ：11:30～14:00",
+      "holiday": "無",
+      "access": {
+        "line": "ＪＲ函館本線",
+        "station": "札幌駅",
+        "station_exit": {},
+        "walk": "1",
+        "note": {}
+      },
+      "parking_lots": {},
+      "pr": {
+        "pr_short": "札幌駅徒歩1分！個室で宴会ならうおや一丁で♪ ★宴会コース 全6品 3000円～ご用意！ 最大宴会人数90名様★6～90名様迄の個室も♪ ランチも営業中！！",
+        "pr_long": "■期間限定！熊ラーメンプレゼントキャンペーン実施中！<BR>7月に配布した券を8月から9月迄にお持ちいただくと人気の熊ラーメンを2つプレゼント！<BR>どちらも無くなり次第終了となりますのでお早めにご来店くださいませ♪<BR><BR>札幌周辺で宴会場がある居酒屋♪<BR>■2時間飲み放題付き宴会コース<BR> □お手軽コース  6品 3,000円<BR>□にぎわいコース  7品 3,500円<BR>□酒宴コース  6品 4,000円<BR>□夏の味覚コース  7品 4,000円<BR>□バラエティコース 12品 4,000円<BR>□北海道コース  8品 4,500円<BR>□一丁大漁コース  7品 5,000円<BR>飲み放題別コースあり！<BR>■席・個室・宴会場情報<BR> □2～90名様ご利用可能のテーブル席<BR>□50名様までご利用可能の個室<BR> □最大宴会人数90名様迄OK"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST09000",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_name_l": [
+          "居酒屋",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_code_s": [
+          "RSFST09004",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_name_s": [
+          "居酒屋",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ]
+      },
+      "budget": "3000",
+      "party": "3500",
+      "lunch": "750",
+      "credit_card": {},
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    },
+    {
+      "@attributes": {
+        "order": "6"
+      },
+      "id": "h059011",
+      "update_date": "2017-09-07 13:49:02",
+      "name": "炭焼・寿し処 炙屋（あぶりや） 札幌駅前店",
+      "name_kana": "スミヤキスシドコロアブリヤ サッポロエキマエテン",
+      "latitude": "43.064361",
+      "longitude": "141.356892",
+      "category": "寿し・炉ばた居酒屋",
+      "url": "https://r.gnavi.co.jp/h059011/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h059011/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/h059011/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h059011/coupon"
+      },
+      "image_url": {
+        "shop_image1": "https://uds.gnst.jp/rest/img/1fstbazg0000/t_005d.jpg",
+        "shop_image2": "https://uds.gnst.jp/rest/img/1fstbazg0000/t_005e.jpg",
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h059011&q=6"
+      },
+      "address": "〒060-0004 北海道札幌市中央区北4条西2 札幌TRビル10F",
+      "tel": "050-3464-8994",
+      "tel_sub": "011-219-5533",
+      "fax": "011-219-6050",
+      "opentime": "月～日 17:00～23:30(L.O.22:30)",
+      "holiday": "※年末年始（12／31、1／1）",
+      "access": {
+        "line": "ＪＲ",
+        "station": "札幌駅",
+        "station_exit": {},
+        "walk": "1",
+        "note": {}
+      },
+      "parking_lots": {},
+      "pr": {
+        "pr_short": "真面目な和食屋「炙屋」です 北海道の新鮮魚貝を豪快に「炭火焼き」 海鮮問屋直納で鮮度抜群！「刺身」と「寿司」 どれもが垂涎の品ばかり！",
+        "pr_long": "炉端・海鮮料理を追い求め、職人たちが質の高い「本物」だけを提供する真面目な和食屋「炙屋」<BR>道内外から揃えた旬の素材を豪快に炙る「炭火焼き」は炙屋自慢のひと品<BR>提携海鮮問屋から直接仕入れた質のよい新鮮魚貝を「刺身」「寿司」で舌鼓。<BR>北海道自慢のきんき、蟹、うに、いくら、鮑、本ししゃも、海老など <BR>熟達の職人が丹精込めた宝珠の逸品が勢ぞろいです！<BR>店内は札幌駅周辺の夜景を望める開放的なエリアと<BR>純和風の佇まいに広々とした個室エリア<BR>少人数でのご商談や最大24名様のご会合まで対応できるお席も<BR>大切なお客様のおもてなしに<BR>気の置けない仲間との語らいの場に<BR>様々なシーンにお応え致します！<BR>ご予約は午後１３時から承り中！ご予約お待ちしております。"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST03000",
+          "RSFST03000"
+        ],
+        "category_name_l": [
+          "すし・魚料理・シーフード",
+          "すし・魚料理・シーフード"
+        ],
+        "category_code_s": [
+          "RSFST03003",
+          "RSFST03001"
+        ],
+        "category_name_s": [
+          "刺身・海鮮料理",
+          "寿司"
+        ]
+      },
+      "budget": "5000",
+      "party": "5500",
+      "lunch": {},
+      "credit_card": "VISA,MasterCard,UC,DC,UFJ,ダイナースクラブ,アメリカン・エキスプレス,JCB,MUFG",
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    },
+    {
+      "@attributes": {
+        "order": "7"
+      },
+      "id": "h299800",
+      "update_date": "2017-09-01 02:12:13",
+      "name": "居酒屋 にほんいち 別宴邸 ",
+      "name_kana": "イザカヤニホンイチベツエンテイ",
+      "latitude": "43.068403",
+      "longitude": "141.352964",
+      "category": "札幌一の活海鮮・旨い酒",
+      "url": "https://r.gnavi.co.jp/h299800/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h299800/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/h299800/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h299800/coupon"
+      },
+      "image_url": {
+        "shop_image1": "https://uds.gnst.jp/rest/img/ngaywcv70000/t_0n5e.jpg",
+        "shop_image2": "https://uds.gnst.jp/rest/img/ngaywcv70000/t_0n5f.jpg",
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h299800&q=6"
+      },
+      "address": "〒060-0808 北海道札幌市北区北8条西4-15 ホテルマイステイズ札幌駅北口1F",
+      "tel": "050-3468-2415",
+      "tel_sub": "011-708-8800",
+      "fax": "011-708-8833",
+      "opentime": "金・祝前日 ディナー：17:00～翌2:00(L.O.1:00)<BR>月～木・土 ディナー：17:00～翌1:00(L.O.24:00)<BR>日・祝日 ディナー：17:00～23:00(L.O.22:30)",
+      "holiday": "年中無休<BR>年末年始（2016年12月31日～2017年1月2日）<BR>※1/3より通常通り営業致します。",
+      "access": {
+        "line": "ＪＲ函館本線",
+        "station": "札幌駅",
+        "station_exit": "北口",
+        "walk": "1",
+        "note": {}
+      },
+      "parking_lots": {},
+      "pr": {
+        "pr_short": "【テレビ放映！】テレビ東京のワールドビジネスサテライトで紹介された【水産会社直営！漁師町の刺身板盛１０品】が浜値の５００円！",
+        "pr_long": "☆↓【満足度９５％を記録した宴会コース】↓☆<BR>１２０分飲み放題付（越乃寒梅・八海山・地酒１０種以上・プレミア焼酎込）<BR>【選べる特選鍋が4種】料理全11品<BR>壱・高級鮮魚使用の特上刺し盛９品<BR>（生本鮪・トロ鮭・活〆イカ・甘海老・活魚２種・天然活帆立<BR>上物生うに・その他一品）<BR>弐・道産霜降り和牛のすき焼 or タラバ・ズワイ２大かに鍋 or 産直きんき鍋or鱈とたちの家族鍋<BR>参・道産素材の盛込み2種<BR>四・蟹のぶっかけだし巻き玉子<BR>五・よだれ鶏<BR>六・いくらたっぷり海鮮生ちらし寿司<BR>七・道産和牛のローストビーフ<BR>八・生ラーメンサラダ<BR>九・帯広産長芋の和風和え<BR>十・枝豆の漬物<BR>十一・〆のデザート<BR>お一人様５０００円"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST09000",
+          "RSFST03000"
+        ],
+        "category_name_l": [
+          "居酒屋",
+          "すし・魚料理・シーフード"
+        ],
+        "category_code_s": [
+          "RSFST09004",
+          "RSFST03010"
+        ],
+        "category_name_s": [
+          "居酒屋",
+          "シーフード料理"
+        ]
+      },
+      "budget": "3800",
+      "party": "4500",
+      "lunch": {},
+      "credit_card": "VISA,MasterCard",
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    },
+    {
+      "@attributes": {
+        "order": "8"
+      },
+      "id": "h333911",
+      "update_date": "2017-09-12 06:08:31",
+      "name": "美食京風個室居酒屋 和美茶美（わびさび）札幌駅前店",
+      "name_kana": "ビショクキョウフウコシツイザカヤ ワビサビサッポロエキマエテン",
+      "latitude": "43.064464",
+      "longitude": "141.356931",
+      "category": "札幌、個室、和風居酒屋",
+      "url": "https://r.gnavi.co.jp/nxs22a9r0000/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h333911/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/nxs22a9r0000/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h333911/coupon"
+      },
+      "image_url": {
+        "shop_image1": "https://uds.gnst.jp/rest/img/nxs22a9r0000/t_00bi.jpg",
+        "shop_image2": "https://uds.gnst.jp/rest/img/nxs22a9r0000/t_006l.jpg",
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h333911&q=6"
+      },
+      "address": "〒060-0004 北海道札幌市中央区北4条西2-1-25 札幌TRビル6F",
+      "tel": "050-3477-8507",
+      "tel_sub": "011-233-1776",
+      "fax": {},
+      "opentime": "月～木・日・祝日 16:00～24:00(L.O.23:00、ドリンクL.O.23:30)<BR>金・土・祝前日 16:00～翌4:00(L.O.3:00、ドリンクL.O.3:30)",
+      "holiday": "※元日",
+      "access": {
+        "line": "札幌市営地下鉄南北線",
+        "station": "さっぽろ駅",
+        "station_exit": {},
+        "walk": "1",
+        "note": {}
+      },
+      "parking_lots": {},
+      "pr": {
+        "pr_short": "【コースリニューアル】札駅徒歩1分の和風居酒屋！ 個室で楽しめる２時間飲み放題付宴会は2980円〜",
+        "pr_long": "秋宴会・法人宴会ご予約承り中！<BR>貸切宴会・一部貸切宴会も可♪ご相談ください！！<BR>【8月スタート】新登場！女子会コース。120分飲み放題付きチーズフォンデュ等7品2980円ポテトサラダ<BR>鴨のカルパッチョ<BR><BR>フライドチキン<BR><BR>チーズフォンデュ<BR><BR>ピッツァマルゲリータ<BR><BR>シーフードピラフ<BR>デザート"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST09000",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_name_l": [
+          "居酒屋",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_code_s": [
+          "RSFST09004",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ],
+        "category_name_s": [
+          "居酒屋",
+          {
+            "@attributes": {
+              "order": "1"
+            }
+          }
+        ]
+      },
+      "budget": "2980",
+      "party": "3000",
+      "lunch": {},
+      "credit_card": "VISA,MasterCard,UC,DC,UFJ,ダイナースクラブ,アメリカン・エキスプレス,JCB,NICOS,MUFG",
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    },
+    {
+      "@attributes": {
+        "order": "9"
+      },
+      "id": "h210301",
+      "update_date": "2017-09-08 17:00:57",
+      "name": "ウメ子の家 札幌駅前店",
+      "name_kana": "ウメコノイエ サッポロエキマエテン",
+      "latitude": "43.063886",
+      "longitude": "141.354689",
+      "category": "札幌居酒屋イタリアン肉",
+      "url": "https://r.gnavi.co.jp/h210301/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "url_mobile": "http://mobile.gnavi.co.jp/shop/h210301/?ak=HyO2zx4ZOB8dt4SNxEOwB0zUUXIUJVacSAHuJ8Xpz9M%3D",
+      "coupon_url": {
+        "pc": "https://r.gnavi.co.jp/h210301/coupon/",
+        "mobile": "http://mobile.gnavi.co.jp/shop/h210301/coupon"
+      },
+      "image_url": {
+        "shop_image1": "https://uds.gnst.jp/rest/img/s5a91u3p0000/t_0092.jpg",
+        "shop_image2": "https://uds.gnst.jp/rest/img/s5a91u3p0000/t_0093.jpg",
+        "qrcode": "https://c-r.gnst.jp/tool/qr/?id=h210301&q=6"
+      },
+      "address": "〒060-0004 北海道札幌市中央区北4条西3-1-1 aune札幌駅前ビル3F",
+      "tel": "050-3476-7360",
+      "tel_sub": "011-222-1144",
+      "fax": "011-222-1198",
+      "opentime": " 17:00～23:30(※営業時間前早宴会可)",
+      "holiday": "年中無休",
+      "access": {
+        "line": "ＪＲ",
+        "station": "札幌駅",
+        "station_exit": "南口",
+        "walk": "2",
+        "note": {}
+      },
+      "parking_lots": {},
+      "pr": {
+        "pr_short": "【札幌駅徒歩1分】お洒落な雰囲気・創作料理・豊富な梅酒♪ ★平日限定コース≪全8品≫3,900円～/平日限定3,500円～ ★最大宴会人数48名様迄／全席個室2～最大48名様OK♪",
+        "pr_long": "イタリアンと創作和食を味わう♪<BR>■2H飲み放題付コース！■ ※お得なクーポン利用価格(税込)♪<BR>◆平日限定コース  全 8品 3500円<BR>◇花衣(Wメイン)コース 全 9品 3900円 ◇花衣(ランクアップ)コース 全 8品 3900円<BR>◇紅霞(Wメイン)コース 全11品 4500円 ◇紅霞(ランクアップ)コース 全10品 4500円<BR>◇星月夜コース  全11品 5000円 ◇夢見月コース  全 9品 6480円<BR>◇極(きわみ)コース 全10品 7560円<BR>その他メニューをご覧ください♪<BR><BR>充実の個室席<BR>2名様/2名様～4名様/2名様～6名様/8名様～14名様/<BR>8名様～32名様/18名様～48名様向け各個室にご案内♪<BR><BR>★梅酒の種類が豊富、梅の実を入れる「梅どぼん」も大好評<BR>☆梅の木を眺め水の音を楽しみながら・・・<BR>★希少肉ミスジのステーキなどの肉料理やピザ、人気のチーズフォンデュなど幅広いメニュー<BR>☆記念日にはメッセージ入りホールケーキ＆花束をご用意"
+      },
+      "code": {
+        "areacode": "AREA150",
+        "areaname": "北海道",
+        "prefcode": "PREF01",
+        "prefname": "北海道",
+        "areacode_s": "AREAS5502",
+        "areaname_s": "札幌駅",
+        "category_code_l": [
+          "RSFST09000",
+          "RSFST10000"
+        ],
+        "category_name_l": [
+          "居酒屋",
+          "ダイニングバー・バー・ビアホール"
+        ],
+        "category_code_s": [
+          "RSFST09004",
+          "RSFST10001"
+        ],
+        "category_name_s": [
+          "居酒屋",
+          "ダイニングバー"
+        ]
+      },
+      "budget": "3500",
+      "party": "2500",
+      "lunch": {},
+      "credit_card": "VISA,MasterCard,UC,DC,UFJ,ダイナースクラブ,アメリカン・エキスプレス,JCB,NICOS,アプラス,セゾン,MUFG",
+      "e_money": {},
+      "flags": {
+        "mobile_site": "1",
+        "mobile_coupon": "1",
+        "pc_coupon": "1"
+      }
+    }
+  ]
+}

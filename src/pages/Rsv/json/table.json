@@ -1,0 +1,31 @@
+[
+  {
+    "createdAt": "[native Date Sun Apr 15 2018 16:29:30 GMT+0900 (JST)]",
+    "enable": true,
+    "frame": 2,
+    "maxNum": "99",
+    "memo": "ffff",
+    "minNum": "1",
+    "name": "テーブル1",
+    "tag": "",
+    "id": "table01"
+  }, {
+    "createdAt": "[native Date Fri Apr 13 2018 03:34:02 GMT+0900 (JST)]",
+    "enable": true,
+    "frame": 2,
+    "maxNum": 4,
+    "memo": "",
+    "minNum": 1,
+    "name": "テーブル2",
+    "id": "table02"
+  }, {
+    "createdAt": "[native Date Fri Apr 13 2018 03:26:53 GMT+0900 (JST)]",
+    "enable": true,
+    "frame": 1,
+    "maxNum": 4,
+    "memo": "",
+    "minNum": 1,
+    "name": "テーブル3",
+    "id": "table03"
+  }
+]
