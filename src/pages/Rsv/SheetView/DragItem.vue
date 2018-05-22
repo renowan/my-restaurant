@@ -8,10 +8,10 @@
     <div class="drag-item-inner txt-wapper">
       <div class="item-txt">
         <div class="txt-ellipsis" :style="{width: width + 'px'}" v-if="isLoading">
-          Loading...
+          Saving...
         </div>
         <div class="txt-ellipsis" :style="{width: width + 'px'}" v-else>
-          <i class="fa fa-check-square-o"></i> {{rsv.name}}
+          <i class="fa" :class="icon"></i> {{rsv.name}}
         </div>
       </div>
     </div>
@@ -60,6 +60,26 @@ export default {
     },
     isLoading () {
       return this.uiLoadingList.indexOf(this.rsv.id) > -1
+    },
+    icon () {
+      let icon = ''
+      switch (this.rsv.state) {
+        case 0:
+          icon = 'fa-question-circle'
+          break
+        case 1:
+          icon = 'fa-check-square-o'
+          break
+        case 2:
+          icon = 'fa-thumbs-o-up'
+          break
+        case 3:
+          icon = 'fa-times-circle'
+          break
+        default:
+          icon = 'fa-question-circle'
+      }
+      return icon
     }
   },
   watch: {
@@ -178,8 +198,15 @@ export default {
     },
     handleUp (e) {
       const SQUARES_WIDTH = this.constants.SQUARES_WIDTH
-      // const isSameX = this.x === this.lastX
-      // const isSameWidth = this.width === this.lastWidth
+      const isSameX = this.x === this.lastX
+      const isSameWidth = this.width === this.lastWidth
+
+      if (isSameX && isSameWidth) {
+        this.resizing = false
+        this.dragging = false
+        return
+      }
+
       const newSize = {
         id: this.rsv.id,
         start: this.x / SQUARES_WIDTH,

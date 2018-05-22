@@ -20,7 +20,7 @@
         </li>
 
         <li :class="getActiveClass('rsv')">
-          <router-link tag="a" to="/rsv/none">
+          <router-link tag="a" to="/cal/none">
             <span class="fa fa-files-o"></span>
             <span class="sidebar-title">予約</span>
           </router-link>

@@ -5,7 +5,7 @@
     </div>
     <div class="col-xs-6">
       <div class="form-group">
-        <label for="inputStandard" class="control-label">予約日 <span class="text-danger">*</span></label>
+        <label for="inputStandard" class="control-label">予約日</label>
         <div>
           <calendar
           v-model="calValue"
@@ -18,7 +18,7 @@
     </div>
     <div class="col-xs-6">
       <div class="form-group">
-        <label for="inputStandard" class="control-label">人数 <span class="text-danger">*</span></label>
+        <label for="inputStandard" class="control-label">人数</label>
         <input type="text" class="form-control" placeholder="" v-model.number="localData.num">
       </div>
     </div>
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="col-xs-6">
-      <div class="form-group">
+      <div class="form-group" :class="{'has-error': nameError}">
         <label for="inputStandard" class="control-label">お名前 <span class="text-danger">*</span></label>
         <input type="text" class="form-control" placeholder="" v-model="localData.name">
       </div>
@@ -80,19 +80,6 @@
         <input type="text" class="form-control" placeholder="" v-model.number="localData.tableFrame">
       </div>
     </div>
-    <!-- <div class="col-xs-12 mb16">
-      <div>
-        <label for="inputStandard" class="control-label">コース</label>
-      </div>
-      <div class="btn-group-justified">
-        <v-select v-model="localData.tableId" :options="tableList" options-value="id" options-label="name"
-        :limit="3"
-        placeholder="コースを選択"
-        search justified
-        close-on-select>
-        </v-select>
-      </div>
-    </div> -->
     <div class="col-xs-12">
       <div class="form-group">
         <bs-input label="メモ" type="textarea" v-model="localData.memo"></bs-input>
@@ -123,7 +110,8 @@ export default {
   name: 'rsv-form-set',
   props: {
     rsvData: { type: Object, required: true },
-    tableList: { type: Array, default: () => [] }
+    tableList: { type: Array, default: () => [] },
+    nameError: { type: Boolean, default: () => false }
   },
   components: {
     calendar,
@@ -170,6 +158,7 @@ export default {
     localData: {
       handler (val) {
         if (!(JSON.stringify(val) === JSON.stringify(this.rsvData))) {
+          console.log('onchange')
           this.$emit('input-on-change', val)
         }
       },

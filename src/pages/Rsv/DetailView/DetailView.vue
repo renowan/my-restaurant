@@ -3,8 +3,7 @@
     予約詳細
   </div>
   <div v-else>
-    <h4 class="mt24 mb16">予約詳細 <stateLabel :state="rsv.state"></stateLabel></h4>
-    <!-- <p class="mb16"><b>ID:</b> PL495017046154a48</p> -->
+    <h4 class="mt24 mb16">予約詳細<stateLabel :state="rsv.state"></stateLabel><span class="saving" v-if="isLoading">Saving...</span></h4>
 
     <div class="d-label">予約者名</div>
     <div class="d-txt">{{rsv.name}} <span v-if="rsv.nameKana !== ''">（{{rsv.nameKana}}）</span></div>
@@ -21,16 +20,15 @@
       <button type="button" class="btn btn-default btn-block" @click="goEdit">
         編集
       </button>
-
       <button type="button" class="btn btn-default btn-block" @click="deleteRsv">
         削除
       </button>
     </div>
-
   </div>
 </template>
 
 <script>
+// import { cloneDeep } from 'lodash'
 import * as timeUtility from '@/common/utils/timeUtility'
 import stateLabel from './StateLabel'
 
@@ -39,7 +37,8 @@ export default {
   props: {
     onSelectId: { type: String, default: () => '' },
     rsvList: { type: Array, default: () => [] },
-    tableList: { type: Array, default: () => [] }
+    tableList: { type: Array, default: () => [] },
+    uiLoadingList: { type: Array, default: () => [] }
   },
   components: {
     stateLabel
@@ -61,7 +60,12 @@ export default {
       if (min === 0) min = '00'
       const hour = Math.floor(time / 4)
       return `${hour}時間${min}分`
-    }
+    },
+    isLoading () {
+      const onSelectId = this.onSelectId
+      if (!onSelectId) return false
+      return this.uiLoadingList.indexOf(onSelectId) > -1
+    },
   },
   watch: {
     onSelectId () {
@@ -82,7 +86,6 @@ export default {
   methods: {
     updateTargetRsv () {
       if (!this.onSelectId) return
-      console.log('rsvList更新', this.rsvList)
       const onSelectId = this.onSelectId
       this.rsv = this.rsvList.filter((rsv) => rsv.id === onSelectId)[0]
     },
@@ -123,5 +126,13 @@ export default {
   font-size: 30px;
   font-weight: bold;
   color: #ddd;
+}
+.label {
+  margin-left: 8px;
+}
+.saving {
+  font-weight: normal;
+  font-size: 12px;
+  margin-left: 8px;
 }
 </style>

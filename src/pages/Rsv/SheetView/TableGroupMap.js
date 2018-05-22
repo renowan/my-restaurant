@@ -492,7 +492,7 @@ class TableGroupMap {
       createdAt: '',
       enable: true,
       name: '未設定・不明テーブル',
-      id: null,
+      id: '',
       maxNum: 999,
       minNum: 1,
       memo: '',

@@ -101,7 +101,7 @@ export default {
     }
 
     const currMonthFirstDay = new Date(time.year, time.month, 1)
-    let firstDayWeek = currMonthFirstDay.getDay()
+    let firstDayWeek = currMonthFirstDay.getDay() + 1
 
     if (firstDayWeek === 0) {
       firstDayWeek = 7
@@ -115,6 +115,7 @@ export default {
       for (let i = 1; i < firstDayWeek; i++) {
         const dayText = prevMonthDayCount - firstDayWeek + i + 1
         const date = new Date(preMonth.year, preMonth.month, dayText)
+        const dateText = this.cvFormat(date)
         const week = date.getDay()
         let sclass = 'day-' + week + ' ' + CLASS_GRAY
         let disabled = !this.chkMinDate(date, minDate) || !this.chkMaxDate(date, maxDate)
@@ -124,13 +125,16 @@ export default {
         dateRange.push({
           text: dayText,
           date: date,
+          dateText,
           sclass: sclass,
-          disabled: disabled
+          disabled: disabled,
+          isCurrentMonth: false
         })
       }
     }
     for (let i = 1; i <= dayCount; i++) {
       const date = new Date(time.year, time.month, i)
+      const dateText = this.cvFormat(date)
       const week = date.getDay()
       let sclass = 'day-' + week
       let disabled = !this.chkMinDate(date, minDate) || !this.chkMaxDate(date, maxDate)
@@ -147,8 +151,10 @@ export default {
       dateRange.push({
         text: i,
         date: date,
+        dateText,
         sclass: sclass,
-        disabled
+        disabled,
+        isCurrentMonth: true
       })
     }
 
@@ -161,6 +167,7 @@ export default {
 
       for (let i = 1; i <= nextMonthNeed; i++) {
         const date = new Date(nextMonth.year, nextMonth.month, i)
+        const dateText = this.cvFormat(date)
         const week = date.getDay()
         let sclass = 'day-' + week + ' ' + CLASS_GRAY
         const disabled = !this.chkMinDate(date, minDate) || !this.chkMaxDate(date, maxDate)
@@ -170,8 +177,10 @@ export default {
         dateRange.push({
           text: i,
           date: date,
+          dateText,
           sclass,
-          disabled: disabled
+          disabled: disabled,
+          isCurrentMonth: false
         })
       }
     }

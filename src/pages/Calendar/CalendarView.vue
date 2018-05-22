@@ -10,17 +10,17 @@
               <div class="fc-toolbar">
                 <div class="row">
                   <div class="col-xs-6">
-                    <h2 class="cal-title">{{yearmonth}}</h2>
+                    <h2 class="cal-title">{{titleTxt}}</h2>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <button type="button" class="btn btn-default btn-today">
-                      今日
+                    <button type="button" class="btn btn-default btn-today" @click="goCurrentMonth">
+                      今月
                     </button>
                     <div class="btn-group">
-                      <button type="button" class="btn btn-default btn-arrow">
+                      <button type="button" class="btn btn-default btn-arrow" @click="goPrev">
                         <i class="fa fa-angle-left"></i>
                       </button>
-                      <button type="button" class="btn btn-default btn-arrow">
+                      <button type="button" class="btn btn-default btn-arrow" @click="goNext">
                         <i class="fa fa-angle-right"></i>
                       </button>
                     </div>
@@ -33,16 +33,16 @@
           <table class="cal-table">
             <thead>
               <tr>
-                <th>日</th>
+                <th><span class="text-danger">日</span></th>
                 <th>月</th>
                 <th>火</th>
                 <th>水</th>
                 <th>木</th>
                 <th>金</th>
-                <th>土</th>
+                <th><span class="text-info">土</span></th>
               </tr>
             </thead>
-            <calendarBody :yearmonth="yearmonth"></calendarBody>
+            <calendarBody :yearMonth="yearMonth" :dateRange="dateRange"></calendarBody>
           </table>
         </div>
       </div>
@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { mapGetters } from 'vuex'
 import contentWrapper from '@/components/Layout/ContentWrapper'
 import calendarBody from './CalendarBody'
@@ -64,11 +65,15 @@ export default {
   computed: Object.assign({},
     mapGetters({
       app: 'app/state',
+      cal: 'cal/state',
+      dateRange: 'cal/dateRange',
     }),
     {}
   ),
   watch: {
-
+    '$route.params.yearMonth' (val) {
+      this.init()
+    }
   },
   data () {
     return {
@@ -76,21 +81,46 @@ export default {
         { label: 'Home', link: '/' },
         { label: '予約カレンダー', link: null }
       ],
-      yearmonth: ''
+      yearMonth: '',
+      titleTxt: ''
     }
   },
   created () {
-    const yearmonth = this.$route.params.yearmonth
-    console.log('yearmonth', yearmonth)
-    if (yearmonth === 'none') {
-      // 指定なし
-      this.yearmonth = this.app.serverTime.yyyymm
-    } else {
-      this.yearmonth = yearmonth
+    if (!this.app.isLogin) {
+      this.$router.push('/login')
+      return
     }
+    this.init()
   },
   methods: {
-
+    init () {
+      const yearMonth = this.$route.params.yearMonth
+      if (yearMonth === 'none') {
+        // 指定なし
+        this.yearMonth = this.app.serverTime.yyyymm
+      } else {
+        this.yearMonth = yearMonth
+      }
+      this.titleTxt = moment(this.yearMonth + '01').format('YYYY年M月')
+      this.$store.dispatch('cal/getMontly', this.yearMonth)
+    },
+    goCurrentMonth () {
+      const yearMonth = this.app.serverTime.yyyymm
+      this.goExe(yearMonth)
+    },
+    goPrev () {
+      const now = this.yearMonth + '01'
+      const yearMonth = moment(now).subtract(1, 'months').format('YYYYMM')
+      this.goExe(yearMonth)
+    },
+    goNext () {
+      const now = this.yearMonth + '01'
+      const yearMonth = moment(now).add(1, 'months').format('YYYYMM')
+      this.goExe(yearMonth)
+    },
+    goExe (yearMonth) {
+      this.$router.push({ name: 'cal', params: { yearMonth } })
+    }
   }
 }
 </script>
