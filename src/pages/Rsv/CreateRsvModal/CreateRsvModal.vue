@@ -2,7 +2,12 @@
   <div>
     <modal v-model="showMyModal" title="予約登録" @cancel="cancelAction">
 
-      <rsv-form-set :rsv-data="rsvData" :tableList="tableList" @input-on-change="inputOnChange"></rsv-form-set>
+      <rsv-form-set
+      :rsv-data="rsvData"
+      :tableList="tableList"
+      :nameError="nameError"
+      @input-on-change="inputOnChange">
+      </rsv-form-set>
 
       <div slot="modal-footer" class="modal-footer">
         <button type="button" class="btn btn-default" @click="cancelAction">キャンセル</button>
@@ -58,7 +63,8 @@ export default {
       tableId: 0,
       format: 'yyyy/MM/dd',
       rsvData: null,
-      canSave: true
+      canSave: true,
+      nameError: false
     }
   },
   created () {
@@ -77,6 +83,7 @@ export default {
         this.rsvData = Object.assign({}, this.editData)
       }
       this.canSave = true
+      this.nameError = false
     },
     cancelAction () {
       this.$emit('close-create-modal')
@@ -84,6 +91,7 @@ export default {
     checkCanSave () {
       if (this.rsvData.name === '') {
         this.canSave = false
+        this.nameError = true
         return
       }
       this.canSave = true
@@ -92,6 +100,11 @@ export default {
       this.checkCanSave()
       if (!this.canSave) return
       this.$emit('create-rsv', this.rsvData)
+      this.resetData()
+    },
+    resetData () {
+      this.canSave = true
+      this.nameError = false
     },
     inputOnChange (e) {
       this.rsvData = e

@@ -20,7 +20,7 @@
             </button>
           </div>
 
-          <button type="button" class="btn bg-light br-b br-light" @click="getList">
+          <button type="button" class="btn bg-light br-b br-light" @click="getList(true)">
             更新
           </button>
           <button type="button" class="btn btn-info" @click="createRsv">
@@ -54,6 +54,7 @@
         :onSelectId="onSelectId"
         :rsvList="rsv.list"
         :tableList="tableList"
+        :uiLoadingList="app.uiLoadingList"
         @rsv-action="rsvAction">
         </detailView>
       </div>
@@ -149,8 +150,8 @@ export default {
     return {
       breadcrumb: [
         { label: 'Home', link: '/' },
-        { label: '予約', link: null },
-        { label: '2018年3月1日', link: null },
+        { label: '予約カレンダー', link: '/cal/none' },
+        { label: '予約', link: null }
       ],
       date: null,
       onSelectId: '',
@@ -211,24 +212,26 @@ export default {
       this.date = date
       if (this.app.isDebug) return
       this.$store.dispatch('rsv/getRsvByDate', { date, isShowLoading: true })
+      const yearMonth = moment(date).format('YYYYMM')
+      this.breadcrumb[1].link = `/cal/${yearMonth}`
       this.breadcrumb[2].label = moment(date).format('YYYY年M月D日')
     },
     onSelect (id) {
-      this.onSelectId = id
+      if (this.onSelectId !== id) {
+        this.onSelectId = id
+      }
     },
     createRsv (request) {
       this.modalType = 'create'
-      if (request.tableId) {
-        this.createRequest = request
-      }
+      this.createRequest = request
       this.showCreateModal = true
     },
     onDayClick2 (e) {
       const date = moment(e).format('YYYYMMDD')
       this.$router.push({ name: 'rsv', params: { date } })
     },
-    getList () {
-      this.$store.dispatch('rsv/getRsvByDate', { date: this.date, isShowLoading: false })
+    getList (isShowLoading = false) {
+      this.$store.dispatch('rsv/getRsvByDate', { date: this.date, isShowLoading })
     },
     updateMode (val) {
       this.isListMode = val

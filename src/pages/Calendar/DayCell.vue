@@ -1,9 +1,9 @@
 <template>
-  <td :class="day.sclass">
+  <td :class="day.sclass" @click="goDay">
     <div class="date-txt">
       {{day.text}}
     </div>
-    <span class="label label-rounded label-primary">41</span>
+    <span class="label label-rounded label-success" v-if="day.rsvVaule > 0">{{day.rsvVaule}}</span>
   </td>
 </template>
 
@@ -31,7 +31,10 @@ export default {
 
   },
   methods: {
-
+    goDay () {
+      const dateText = this.day.dateText
+      this.$router.push({ name: 'rsv', params: { date: dateText } })
+    }
   }
 }
 </script>
@@ -41,6 +44,9 @@ td {
   border: 1px solid #ddd;
   text-align: center;
   padding-bottom: 8px;
+  height: 80px;
+  vertical-align: top;
+  cursor: pointer;
 
   .date-txt {
     text-align: right;
@@ -52,13 +58,11 @@ td {
   }
 }
 
-
-
-.day-1 .date-txt {
+.day-0 .date-txt {
   color: #e9573f;
 }
-.day-0 .date-txt {
-  color: #4a89dc;
+.day-6 .date-txt {
+  color: #3bafda;
 }
 
 .datepicker-item-gray {
@@ -66,5 +70,9 @@ td {
   .date-txt {
     color: #dcdcdc;
   }
+}
+
+td.datepicker-dateRange-item-active {
+  background-color: #ffffea!important;
 }
 </style>

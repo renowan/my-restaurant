@@ -11,10 +11,10 @@
         </button>
         <div class="btn-group">
           <button type="button" class="btn btn-default btn-sm btn-keisai">
-            <i class="fa fa-star text-warning"></i> 掲載
+            <i class="fa fa-star text-warning"></i> 掲載（未実装）
           </button>
           <button type="button" class="btn btn-default btn-sm btn-keisai">
-            <i class="fa fa-star-o"></i> 非掲載
+            <i class="fa fa-star-o"></i> 非掲載（未実装）
           </button>
         </div>
       </div>
@@ -47,15 +47,15 @@
     </table>
     <div class="dt-panelfooter clearfix">
       <div class="dataTables_info" id="datatable3_info" role="status" aria-live="polite">
-        Showing x to x of {{tableList.length}} entries
+        登録テーブル {{tableList.length}} 件
       </div>
-      <div class="dataTables_paginate paging_simple_numbers" id="datatable3_paginate">
+      <!-- <div class="dataTables_paginate paging_simple_numbers" id="datatable3_paginate">
         <ul class="pagination">
           <li class="paginate_button active" aria-controls="datatable3" tabindex="0"><a href="#">1</a></li>
           <li class="paginate_button " aria-controls="datatable3" tabindex="0"><a href="#">2</a></li>
           <li class="paginate_button " aria-controls="datatable3" tabindex="0"><a href="#">3</a></li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

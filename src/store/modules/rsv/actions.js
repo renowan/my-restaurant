@@ -52,34 +52,48 @@ export default {
     })
   },
 
-  updateDragItem ({ commit, dispatch, state, rootState }, order) {
-    const { id, start, long } = order
+  updateDragItem ({ commit, dispatch, state, rootState }, orderRsv) {
+    const { id } = orderRsv
     const list = cloneDeep(state.list)
-    let targetRsv = null
-    let isSame = true
-    const newList = list.map((rsv) => {
-      if (rsv.id === id) {
-        if (rsv.start !== start || rsv.long !== long) {
-          isSame = false
-          rsv = Object.assign(rsv, order)
-          targetRsv = rsv
-        }
-      }
-      return rsv
-    })
+    const targetRsv = list.filter((rsv) => rsv.id === id)[0]
+    const updatedRsv = Object.assign(targetRsv, orderRsv)
+    const hasChange = JSON.stringify(targetRsv) === JSON.stringify(updatedRsv)
+    // console.log('targetRsv', targetRsv)
+    // console.log('updatedRsv', updatedRsv)
+    // console.log('hasChange', hasChange)
 
-    if (isSame) return
+    if (!hasChange) return
 
-    const postRsv = Object.assign(targetRsv, order)
-    dispatch('update', postRsv)
-    commit('UPDATE_LIST', newList)
+    dispatch('updateRealTime', cloneDeep(updatedRsv))
+    dispatch('update', updatedRsv)
   },
 
-  update ({ commit, dispatch, state, rootState }, rsv) {
+  // サーバー送信する前に、クライアント側のrsvListを更新
+  updateRealTime ({ commit, dispatch, state, rootState }, orderRsv) {
+    const list = cloneDeep(state.list)
+    let hasChange = false
+    const newList = list.map((rsv) => {
+      if (rsv.id === orderRsv.id) {
+        hasChange = JSON.stringify(rsv) !== JSON.stringify(orderRsv)
+        return orderRsv
+      } else {
+        return rsv
+      }
+    })
+    if (hasChange) commit('UPDATE_LIST', newList)
+  },
+
+  update ({ commit, dispatch, state, rootState }, orderRsv) {
+    const rsv = cloneDeep(orderRsv)
+    dispatch('updateRealTime', cloneDeep(orderRsv))
+
     // idが不明の場合は実行しない
     if (!rsv.id) return
 
+    // 保存完了フラグを下げる
     commit('UPDATE_SAVED', false)
+
+    // 必要な情報
     const uid = rootState.app.userInfo.uid
     const id = rsv.id
 
@@ -93,6 +107,7 @@ export default {
     const rsvyyyymm = String(rsv.date).slice(0, 6)
     // ページ表示中の年月
     const pageyyyymm = state.date.slice(0, 6)
+
     if (rsvyyyymm === pageyyyymm) {
       delete rsv.id
       // 同じ年月での更新

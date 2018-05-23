@@ -7,14 +7,12 @@
 </template>
 
 <script>
-import { chunk } from 'lodash'
-import cu from '@/components/ui/utils/calendarUtils'
 import dayCell from './DayCell'
 
 export default {
   name: 'calendar-body',
   props: {
-    yearmonth: { type: String, required: true }
+    dateRange: { type: Array, required: true }
   },
   components: {
     dayCell
@@ -22,28 +20,22 @@ export default {
   computed: {
 
   },
-  watch: {
-    yearmonth (val) {
-      console.log('init yearmonth', val)
-      this.init()
-    }
-  },
   data () {
     return {
-      dateRange: []
+      // dateRange: []
     }
   },
   created () {
-    this.init()
+    // this.init()
   },
   methods: {
-    init () {
-      const dateRange = cu.getDateRange({
-        targetDate: this.yearmonth + '01'
-      })
-      console.log('dateRange', dateRange)
-      this.dateRange = chunk(dateRange, 7)
-    }
+    // init () {
+    //   const dateRange = cu.getDateRange({
+    //     targetDate: this.yearMonth + '01'
+    //   })
+    //   // console.log('dateRange', dateRange)
+    //   this.dateRange = chunk(dateRange, 7)
+    // }
   }
 }
 </script>

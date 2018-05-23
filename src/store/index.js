@@ -5,6 +5,7 @@ import home from './modules/home'
 import table from './modules/table'
 import course from './modules/course'
 import rsv from './modules/rsv'
+import cal from './modules/cal'
 
 Vue.use(Vuex)
 
@@ -14,7 +15,8 @@ export default new Vuex.Store({
     home,
     table,
     course,
-    rsv
+    rsv,
+    cal
   },
   strict: true,
   plugins: []

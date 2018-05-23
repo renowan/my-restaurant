@@ -24,7 +24,6 @@ export default {
   },
   watch: {
     table () {
-      console.log('テーブルからったほ')
       this.renderExtendArea()
     }
   },

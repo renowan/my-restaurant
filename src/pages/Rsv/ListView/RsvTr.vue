@@ -46,7 +46,6 @@ export default {
       const long = this.rsv.long
       const _time = long * 15
 
-      // const _time = Number(time)
       const _t = Math.floor(_time / 60)
       let _m = _time % 60
       _m = _m === 0 ? '00' : _m
