@@ -43,5 +43,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.label {
+  padding: .1em .3em .1em;
+}
 
+.label-gray {
+  color: #fff;
+  background-color: #bfbfbf;
+}
 </style>

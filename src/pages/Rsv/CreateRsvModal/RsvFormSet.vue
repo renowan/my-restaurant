@@ -17,9 +17,10 @@
       </div>
     </div>
     <div class="col-xs-6">
-      <div class="form-group">
-        <label for="inputStandard" class="control-label">人数</label>
-        <input type="text" class="form-control" placeholder="" v-model.number="localData.num">
+      <div class="form-group" :class="{'has-error': numError}">
+        <label for="inputStandard" class="control-label">人数 <span class="text-danger">*</span></label>
+        <numberInput v-model="localData.num"></numberInput>
+        <!-- <input type="text" class="form-control" placeholder="" v-model.number="localData.num"> -->
       </div>
     </div>
     <div class="col-xs-6">
@@ -32,7 +33,7 @@
     <div class="col-xs-6">
       <div class="form-group">
         <label for="inputStandard" class="control-label">利用時間</label>
-        <useTimePicker v-model="localData.long"></useTimePicker>
+        <useTimePicker v-model="localData.long" placeholder=""></useTimePicker>
         <!-- <input type="text" class="form-control" placeholder="" v-model="localData.long"> -->
       </div>
     </div>
@@ -56,9 +57,9 @@
       </div>
     </div>
     <div class="col-xs-6">
-      <div class="form-group">
-        <label for="inputStandard" class="control-label">支払い金額</label>
-        <input type="text" class="form-control" placeholder="" v-model.number="localData.pay">
+      <div class="form-group" :class="{'has-error': payError}">
+        <label for="inputStandard" class="control-label">支払い金額 <span class="text-danger">*</span></label>
+        <numberInput v-model="localData.pay" placeholder=""></numberInput>
       </div>
     </div>
     <div class="col-xs-9 mb16">
@@ -75,9 +76,9 @@
       </div>
     </div>
     <div class="col-xs-3">
-      <div class="form-group">
-        <label for="inputStandard" class="control-label">テーブルフレーム</label>
-        <input type="text" class="form-control" placeholder="" v-model.number="localData.tableFrame">
+      <div class="form-group" :class="{'has-error': tableFrameError}">
+        <label for="inputStandard" class="control-label">テーブルフレーム <span class="text-danger">*</span></label>
+        <numberInput v-model="localData.tableFrame" placeholder=""></numberInput>
       </div>
     </div>
     <div class="col-xs-12">
@@ -91,6 +92,7 @@
 <script>
 import { select, input } from 'vue-strap'
 import calendar from '@/components/ui/Calendar'
+import numberInput from '@/components/ui/NumberInput'
 import timePicker from '@/components/ui/TimePicker'
 import useTimePicker from '@/components/ui/UseTimePicker'
 import rsvState from '@/components/RsvForm/RsvState'
@@ -111,7 +113,10 @@ export default {
   props: {
     rsvData: { type: Object, required: true },
     tableList: { type: Array, default: () => [] },
-    nameError: { type: Boolean, default: () => false }
+    numError: { type: Boolean, default: () => false },
+    nameError: { type: Boolean, default: () => false },
+    payError: { type: Boolean, default: () => false },
+    tableFrameError: { type: Boolean, default: () => false },
   },
   components: {
     calendar,
@@ -119,7 +124,8 @@ export default {
     vSelect: select,
     bsInput: input,
     timePicker,
-    useTimePicker
+    useTimePicker,
+    numberInput
   },
   computed: {
     calValue: {
@@ -146,7 +152,8 @@ export default {
         nameKana: '',
         memo: '',
         long: 8,
-        start: 12
+        start: 12,
+        tableFrame: 1
       },
       format: 'yyyy/MM/dd',
     }
@@ -158,7 +165,6 @@ export default {
     localData: {
       handler (val) {
         if (!(JSON.stringify(val) === JSON.stringify(this.rsvData))) {
-          console.log('onchange')
           this.$emit('input-on-change', val)
         }
       },
@@ -166,7 +172,6 @@ export default {
     }
   },
   created () {
-
   }
 }
 </script>

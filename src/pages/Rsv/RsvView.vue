@@ -4,11 +4,19 @@
     <div class="container-fluid mv8">
       <div class="row">
         <div class="col-xs-6">
-          <calendar
+          <div class="btn-group btn-group">
+            <button type="button" class="btn btn-default btn-go-prve" @click="goPrveDay">
+              <i class="fa fa-angle-left"></i>
+            </button>
+            <calendar
             v-model="calValue"
             :format="format"
             :has-input="true">
           </calendar>
+          <button type="button" class="btn btn-default btn-go-next" @click="goNextDay">
+            <i class="fa fa-angle-right"></i>
+          </button>
+          </div>
         </div>
         <div class="col-xs-6 mt4 text-right">
           <div class="btn-group">
@@ -45,7 +53,9 @@
 
         <listView v-else
         :rsvList="rsv.list"
-        :tableList="tableList">
+        :tableList="tableList"
+        @on-select="onSelect"
+        @rsv-action="rsvAction">
         </listView>
 
       </div>
@@ -61,9 +71,9 @@
     </div>
 
     <div slot="topBarRight">
-      <button type="button" class="btn btn-default btn-sm">
+      <!-- <button type="button" class="btn btn-default btn-sm">
         testbtn
-      </button>
+      </button> -->
     </div>
 
     <deleteModal
@@ -128,7 +138,6 @@ export default {
   computed: Object.assign({},
     mapGetters({
       app: 'app/state',
-      // uid: 'app/uid',
       rsv: 'rsv/state',
       tableList: 'table/list'
     }),
@@ -136,12 +145,12 @@ export default {
       calValue: {
         get () {
           return changeDateFormat(this.date)
-          // return moment(this.date).format('YYYY/MM/DD')
         },
         set (val) {
           const date = changeDateFormat(val)
+          if (date === this.date) return
           this.date = date
-          this.onDayClick2(date)
+          this.onDayClick(date)
         }
       }
     }
@@ -226,7 +235,7 @@ export default {
       this.createRequest = request
       this.showCreateModal = true
     },
-    onDayClick2 (e) {
+    onDayClick (e) {
       const date = moment(e).format('YYYYMMDD')
       this.$router.push({ name: 'rsv', params: { date } })
     },
@@ -237,6 +246,7 @@ export default {
       this.isListMode = val
     },
     rsvAction (e) {
+      console.log('action', e)
       const { action, id } = e
       switch (action) {
         case 'edit':
@@ -258,7 +268,6 @@ export default {
       this.showDeleteModal = true
     },
     deleteRsvExe (id) {
-      // const rsv = this.rsv.list.filter((rsv) => rsv.id === id)[0]
       this.$store.dispatch('rsv/delete', this.deleteTarget)
       this.showDeleteModal = false
     },
@@ -286,6 +295,16 @@ export default {
     // 予約アイテムがドラッグされた
     onChangeDragItem (order) {
       this.$store.dispatch('rsv/updateDragItem', order)
+    },
+    goPrveDay () {
+      const date = moment(this.calValue).subtract(1, 'day').format('YYYY/MM/DD')
+      console.log(date)
+      this.calValue = date
+    },
+    goNextDay () {
+      const date = moment(this.calValue).add(1, 'day').format('YYYY/MM/DD')
+      console.log(date)
+      this.calValue = date
     }
   }
 }
@@ -312,5 +331,18 @@ export default {
     padding: 0 24px 0;
     vertical-align: top;
   }
+}
+
+.btn-go-prve {
+  border-right: 0;
+  width: 36px;
+}
+.btn-go-next {
+  border-left: 0;
+  width: 36px;
+}
+.datepicker {
+  padding: 0;
+  float: left;
 }
 </style>

@@ -7,6 +7,8 @@
 
     <div class="d-label">予約者名</div>
     <div class="d-txt">{{rsv.name}} <span v-if="rsv.nameKana !== ''">（{{rsv.nameKana}}）</span></div>
+    <div class="d-label">予約人数</div>
+    <div class="d-txt">{{rsv.num}}</div>
     <div class="d-label">予約時間</div>
     <div class="d-txt">{{startTime}}</div>
     <div class="d-label">利用時間</div>

@@ -37,8 +37,9 @@ new Vue({
     }
   },
   created () {
+    // this.$store.commit('app/SET_IS_DEBUG')
     if (this.app.isDebug) {
-      this.$store.commit('app/UPDATE_IS_APP_LOADED', true)
+      console.log('debug')
     } else {
       this.$store.commit('app/UPDATE_ISLOADING', true)
       firebase.auth().onAuthStateChanged((user) => {

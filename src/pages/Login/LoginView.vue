@@ -55,6 +55,39 @@
                 </div>
               </div>
 
+              <!-- <div class="setion row">
+                <div class="col-xs-12">
+                  <div class="section-divider mv40">
+                    <span>メールアカウントログイン</span>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="section">
+                    <label for="username" class="field prepend-icon">
+                      <input type="text" name="username" id="username" class="gui-input" placeholder="メールアドレス">
+                      <label for="username" class="field-icon">
+                        <i class="fa fa-user"></i>
+                      </label>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="section">
+                    <label for="password" class="field prepend-icon">
+                      <input type="text" name="password" id="password" class="gui-input" placeholder="パスワード">
+                      <label for="password" class="field-icon">
+                        <i class="fa fa-lock"></i>
+                      </label>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <button type="button" class="btn btn-primary btn-block">
+                    ログイン
+                  </button>
+                </div>
+              </div> -->
+
               <!-- Divider -->
               <!-- <div class="section-divider mv30">
                 <span>OR</span>
@@ -124,7 +157,8 @@ export default {
   name: 'login-view',
   data () {
     return {
-      isLogin: false
+      mail: '',
+      password: ''
     }
   },
   computed: Object.assign({},
@@ -137,8 +171,17 @@ export default {
     this.$store.commit('app/UPDATE_ISLOADING', false)
   },
   methods: {
+    loginMail () {
+      const mail = this.mail
+      const password = this.password
+      this.$store.dispatch('app/login', { mail, password }).then(() => {
+        // ログインできた
+        this.$router.push('/home')
+      })
+    },
     loginTiwtter () {
       this.$store.dispatch('app/login').then(() => {
+        console.log('ログインおわた')
         // ログインできた
         this.$router.push('/home')
       })

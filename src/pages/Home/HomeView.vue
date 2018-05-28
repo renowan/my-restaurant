@@ -72,15 +72,17 @@
 import { mapGetters } from 'vuex'
 import contentWrapper from '@/components/Layout/ContentWrapper'
 import modal from '@/components/ui/Modal'
+// import numberInput from './NumberInput'
 
-const firebase = window.firebase
-const db = firebase.firestore()
+// const firebase = window.firebase
+// const db = firebase.firestore()
 
 export default {
   name: 'home-view',
   components: {
     contentWrapper,
-    modal
+    modal,
+    // numberInput
   },
   computed: Object.assign({},
     mapGetters({
@@ -109,23 +111,23 @@ export default {
   },
   methods: {
     test1 () {
-      db.collection('users').add({
-        first: 'ada',
-        last: 'Lovelace',
-        born: 1815
-      }).then((docRef) => {
-        console.log('Document written with ID: ', docRef.id)
-      }).catch((error) => {
-        console.error('Error adding document: ', error)
-      })
+      // db.collection('users').add({
+      //   first: 'ada',
+      //   last: 'Lovelace',
+      //   born: 1815
+      // }).then((docRef) => {
+      //   console.log('Document written with ID: ', docRef.id)
+      // }).catch((error) => {
+      //   console.error('Error adding document: ', error)
+      // })
     },
     test2 () {
-      db.collection('users').get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          console.log(doc.data())
-          // console.log(`${doc.id} => ${doc.data()}`);
-        })
-      })
+      // db.collection('users').get().then((querySnapshot) => {
+      //   querySnapshot.forEach((doc) => {
+      //     console.log(doc.data())
+      //     // console.log(`${doc.id} => ${doc.data()}`);
+      //   })
+      // })
     },
     test3 () {
       // db.doc(`users/${this.uid}/rsv/201803/rsv/CYCtLWrC9oVnrp7BloZ7`).get().then((doc) => {

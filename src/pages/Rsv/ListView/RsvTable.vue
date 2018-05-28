@@ -19,7 +19,8 @@
           v-bind:key="'rsv-tr-' + index"
           :rsv="item"
           :tableList="tableList"
-          @rsv-action="rsvAction">
+          @rsv-action="rsvAction"
+          @on-select="onSelect">
           </rsv-tr>
         </tbody>
       </table>
@@ -44,6 +45,9 @@ export default {
   methods: {
     rsvAction (e) {
       this.$emit('rsv-action', e)
+    },
+    onSelect (id) {
+      this.$emit('on-select', id)
     }
   }
 }

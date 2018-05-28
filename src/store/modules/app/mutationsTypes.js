@@ -1,3 +1,5 @@
+// デバッグモードにする
+export const SET_IS_DEBUG = 'SET_IS_DEBUG'
 // RSVAPI エラー、共通
 export const COMMON_ERROR = 'COMMON_ERROR'
 // error objをnullに戻す

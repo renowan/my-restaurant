@@ -1,13 +1,13 @@
 <template>
   <tr>
-    <td class="pl24" @click="edit"><state-label :state="rsv.state"></state-label></td>
-    <td class="text-left" @click="edit">
+    <td class="pl24" @click="onSelect"><state-label :state="rsv.state"></state-label></td>
+    <td class="text-left" @click="onSelect">
       {{timeTxt}}
     </td>
-    <td class="" @click="edit">{{serviceTime}}</td>
-    <td class="" @click="edit">{{rsv.name}}</td>
-    <td class="" @click="edit">{{rsv.num}}</td>
-    <td class="" @click="edit">{{tableName}}</td>
+    <td class="" @click="onSelect">{{serviceTime}}</td>
+    <td class="" @click="onSelect">{{rsv.name}}</td>
+    <td class="" @click="onSelect">{{rsv.num}}</td>
+    <td class="" @click="onSelect">{{tableName}}</td>
     <td class="pr24 text-right pr">
       <spinner ref="spinner" v-model="isLoading" size="sm" text="" v-if="isLoading"></spinner>
 
@@ -70,6 +70,7 @@ export default {
       })
     },
     edit () {
+      console.log('edit')
       this.$emit('rsv-action', {
         action: 'edit',
         id: this.rsv.id
@@ -80,6 +81,9 @@ export default {
         action: 'copy',
         id: this.rsv.id
       })
+    },
+    onSelect () {
+      this.$emit('on-select', this.rsv.id)
     }
   }
 }

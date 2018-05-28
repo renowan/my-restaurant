@@ -6,6 +6,7 @@ import tableView from '@/pages/Table/TableView'
 import loginView from '@/pages/Login/LoginView'
 import rsvView from '@/pages/Rsv/RsvView'
 import calendarView from '@/pages/Calendar/CalendarView'
+import chartView from '@/pages/Chart/ChartView'
 
 Vue.use(Router)
 
@@ -15,6 +16,11 @@ const router = new Router({
       path: '*',
       name: 'home',
       component: homeView
+    },
+    {
+      path: '/chart',
+      name: 'chart',
+      component: chartView
     },
     {
       path: '/table',
