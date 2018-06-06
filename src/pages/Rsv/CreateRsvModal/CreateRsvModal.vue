@@ -5,7 +5,10 @@
       <rsv-form-set
       :rsv-data="rsvData"
       :tableList="tableList"
+      :numError="numError"
       :nameError="nameError"
+      :payError="payError"
+      :tableFrameError="tableFrameError"
       @input-on-change="inputOnChange">
       </rsv-form-set>
 
@@ -54,6 +57,8 @@ export default {
       this.showMyModal = val
       if (val) {
         this.init()
+      } else {
+        this.resetData()
       }
     }
   },
@@ -64,7 +69,11 @@ export default {
       format: 'yyyy/MM/dd',
       rsvData: null,
       canSave: true,
-      nameError: false
+      // バリ
+      numError: false,
+      nameError: false,
+      payError: false,
+      tableFrameError: false,
     }
   },
   created () {
@@ -82,19 +91,39 @@ export default {
       } else {
         this.rsvData = Object.assign({}, this.editData)
       }
-      this.canSave = true
-      this.nameError = false
+      // this.resetData()
     },
     cancelAction () {
       this.$emit('close-create-modal')
     },
     checkCanSave () {
-      if (this.rsvData.name === '') {
-        this.canSave = false
-        this.nameError = true
-        return
+      let canSave = true
+      if (!this.rsvData.num) {
+        canSave = false
+        this.numError = true
+      } else {
+        this.numError = false
       }
-      this.canSave = true
+      if (this.rsvData.name === '') {
+        canSave = false
+        this.nameError = true
+      } else {
+        this.nameError = false
+      }
+      if (this.rsvData.pay === undefined) {
+        canSave = false
+        this.payError = true
+      } else {
+        this.payError = false
+      }
+      if (this.rsvData.tableFrame === undefined) {
+        canSave = false
+        this.tableFrameError = true
+      } else {
+        this.tableFrameError = false
+      }
+
+      this.canSave = canSave
     },
     save () {
       this.checkCanSave()
@@ -104,7 +133,10 @@ export default {
     },
     resetData () {
       this.canSave = true
+      this.numError = false
       this.nameError = false
+      this.payError = false
+      this.tableFrameError = false
     },
     inputOnChange (e) {
       this.rsvData = e

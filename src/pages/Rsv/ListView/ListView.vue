@@ -5,7 +5,8 @@
       :list="rsvList"
       :tableList="tableList"
       :uiLoadingList="[]"
-      @rsv-action="rsvAction">
+      @rsv-action="rsvAction"
+      @on-select="onSelect">
       </rsvTable>
     </div>
   </div>
@@ -37,8 +38,13 @@ export default {
 
   },
   methods: {
-    rsvAction () {
-
+    rsvAction (e) {
+      console.log('action listview', e)
+      this.$emit('rsv-action', e)
+    },
+    onSelect (id) {
+      console.log('list id', id)
+      this.$emit('on-select', id)
     }
   }
 }

@@ -1,0 +1,71 @@
+[{
+    "createdAt": "2018-05-22T08:55:05.387Z",
+    "enable": true,
+    "frame": "8",
+    "maxNum": "30",
+    "memo": "",
+    "minNum": "12",
+    "name": "薩摩藩",
+    "tag": "",
+    "id": "pum4PhDwwyWfVfZ65fP2"
+}, {
+    "createdAt": "2018-05-21T01:37:43.684Z",
+    "enable": true,
+    "frame": "8",
+    "maxNum": "6",
+    "memo": "親藩",
+    "minNum": "4",
+    "name": "尾張藩",
+    "tag": "",
+    "id": "e1dWA3lpddkury8DG5T9"
+}, {
+    "createdAt": "2018-05-16T17:42:17.521Z",
+    "enable": false,
+    "frame": "2",
+    "maxNum": "10",
+    "memo": "栃木",
+    "minNum": "6",
+    "name": "常磐線",
+    "tag": "",
+    "id": "vJ5l4PME5RwbiQMxOJjl"
+}, {
+    "createdAt": "2018-05-16T17:41:39.463Z",
+    "enable": true,
+    "frame": "4",
+    "maxNum": "20",
+    "memo": "山手線専用テーブル",
+    "minNum": "12",
+    "name": "山手線専用",
+    "tag": "",
+    "id": "N86fAIGvv84q5McRmZPR"
+}, {
+    "createdAt": "2018-05-16T17:39:31.966Z",
+    "enable": false,
+    "frame": "2",
+    "maxNum": "6",
+    "memo": "",
+    "minNum": "4",
+    "name": "丸いテーブル",
+    "tag": "",
+    "id": "6KK6foxMYGGwrt6RrUzs"
+}, {
+    "createdAt": "2018-05-16T17:39:17.222Z",
+    "enable": true,
+    "frame": 1,
+    "maxNum": 4,
+    "memo": "",
+    "minNum": "2",
+    "name": "テーブル1",
+    "tag": "",
+    "id": "K94GWOXCXsVLSo3Uyqhx"
+}, {
+    "createdAt": "2018-05-16T17:36:25.483Z",
+    "enable": true,
+    "frame": 1,
+    "maxNum": 4,
+    "memo": "",
+    "minNum": 1,
+    "name": "デフォルトテーブル",
+    "tag": "",
+    "id": "Og54Tl7MefOn51NmPgEg"
+}]

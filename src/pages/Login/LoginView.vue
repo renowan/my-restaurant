@@ -44,8 +44,8 @@
                     <span>ログイン</span>
                   </div>
                 </div>
-                <div class="col-xs-12 text-center mb8">
-                  現在はTwitterアカウントのみ対応
+                <div class="col-xs-12 mb16">
+                  現在はTwitterアカウントのみ対応です。お気軽にログインして触ってみてください。バグ報告大歓迎。
                 </div>
                 <div class="col-xs-12">
                   <a href="javascript:void(0)" class="button btn-social twitter span-left btn-block" @click="loginTiwtter">
@@ -54,6 +54,39 @@
                     </span>Twitter</a>
                 </div>
               </div>
+
+              <!-- <div class="setion row">
+                <div class="col-xs-12">
+                  <div class="section-divider mv40">
+                    <span>メールアカウントログイン</span>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="section">
+                    <label for="username" class="field prepend-icon">
+                      <input type="text" name="username" id="username" class="gui-input" placeholder="メールアドレス">
+                      <label for="username" class="field-icon">
+                        <i class="fa fa-user"></i>
+                      </label>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="section">
+                    <label for="password" class="field prepend-icon">
+                      <input type="text" name="password" id="password" class="gui-input" placeholder="パスワード">
+                      <label for="password" class="field-icon">
+                        <i class="fa fa-lock"></i>
+                      </label>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <button type="button" class="btn btn-primary btn-block">
+                    ログイン
+                  </button>
+                </div>
+              </div> -->
 
               <!-- Divider -->
               <!-- <div class="section-divider mv30">
@@ -124,7 +157,8 @@ export default {
   name: 'login-view',
   data () {
     return {
-      isLogin: false
+      mail: '',
+      password: ''
     }
   },
   computed: Object.assign({},
@@ -137,8 +171,17 @@ export default {
     this.$store.commit('app/UPDATE_ISLOADING', false)
   },
   methods: {
+    loginMail () {
+      const mail = this.mail
+      const password = this.password
+      this.$store.dispatch('app/login', { mail, password }).then(() => {
+        // ログインできた
+        this.$router.push('/home')
+      })
+    },
     loginTiwtter () {
       this.$store.dispatch('app/login').then(() => {
+        console.log('ログインおわた')
         // ログインできた
         this.$router.push('/home')
       })

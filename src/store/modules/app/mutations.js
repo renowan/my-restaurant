@@ -2,6 +2,12 @@ import * as types from './mutationsTypes'
 
 // actions
 export default {
+  [types.SET_IS_DEBUG] (state, data) {
+    state.isDebug = true
+    // state.isLogin = true
+    state.isLoading = false
+    state.isAppLoaded = true
+  },
   [types.UPDATE_IS_LOGIN] (state, data) {
     state.isLogin = data
     if (!data) {

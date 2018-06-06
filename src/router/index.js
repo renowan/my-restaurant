@@ -6,6 +6,8 @@ import tableView from '@/pages/Table/TableView'
 import loginView from '@/pages/Login/LoginView'
 import rsvView from '@/pages/Rsv/RsvView'
 import calendarView from '@/pages/Calendar/CalendarView'
+import sumallyView from '@/pages/Sumally/SumallyView'
+import menuView from '@/pages/Menu/MenuView'
 
 Vue.use(Router)
 
@@ -15,6 +17,16 @@ const router = new Router({
       path: '*',
       name: 'home',
       component: homeView
+    },
+    {
+      path: '/menu',
+      name: 'menu',
+      component: menuView
+    },
+    {
+      path: '/sumally',
+      name: 'sumally',
+      component: sumallyView
     },
     {
       path: '/table',

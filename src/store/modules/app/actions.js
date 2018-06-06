@@ -12,16 +12,29 @@ const provider = new firebase.auth.TwitterAuthProvider()
 
 // actions
 export default {
-  login ({commit, state, dispatch}) {
+  login ({commit, state, dispatch}, order) {
     commit('UPDATE_ISLOADING', true)
     return new Promise((resolve, reject) => {
-      firebase.auth().signInWithPopup(provider).then((result) => {
-        commit('UPDATE_IS_LOGIN', true)
-        // dispatch('appInit', result.user)
-        resolve()
-      }).catch((error) => {
-        console.log('error', error)
-      })
+      if (order) {
+        console.log('メールログイン')
+        const { mail, password } = order
+        firebase.auth().signInWithEmailAndPassword(mail, password).then((result) => {
+          commit('UPDATE_IS_LOGIN', true)
+          commit('UPDATE_ISLOADING', false)
+          resolve()
+        }).catch((error) => {
+          console.log('error', error)
+        })
+      } else {
+        console.log('ソーシャルログイン')
+        firebase.auth().signInWithPopup(provider).then((result) => {
+          commit('UPDATE_IS_LOGIN', true)
+          commit('UPDATE_ISLOADING', false)
+          resolve()
+        }).catch((error) => {
+          console.log('error', error)
+        })
+      }
     })
   },
   loginOut ({commit, state, dispatch}) {
