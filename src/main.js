@@ -37,7 +37,7 @@ new Vue({
     }
   },
   created () {
-    this.$store.commit('app/SET_IS_DEBUG')
+    // this.$store.commit('app/SET_IS_DEBUG')
     if (this.app.isDebug) {
       console.log('debug')
     } else {
