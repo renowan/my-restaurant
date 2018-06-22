@@ -12,7 +12,7 @@ export default {
   watch: {
     index (val) {
       if (val === '' || val === undefined) {
-        this.index = undefined
+        this.index = this.value
       } else {
         this.index = Number(String(val).replace(/[^0-9]+/g, ''))
       }

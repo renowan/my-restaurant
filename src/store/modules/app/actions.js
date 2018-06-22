@@ -84,8 +84,9 @@ export default {
       minNum: 1,
       maxNum: 4,
     })
+    const tabRef = db.collection(`users/${user.uid}/menu`).add({ name: 'メイン' })
 
-    Promise.all([userRef, tableRef, courseRef]).then((response) => {
+    Promise.all([userRef, tableRef, courseRef, tabRef]).then((response) => {
       dispatch('loadAllData', user.uid)
     })
   },

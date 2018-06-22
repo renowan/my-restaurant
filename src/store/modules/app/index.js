@@ -17,7 +17,8 @@ const state = {
   userInfo: null,
   serverTime: null,
   isAppLoaded: false,
-  uiLoadingList: []
+  uiLoadingList: [],
+  taxRate: 1.08
 }
 
 export default {

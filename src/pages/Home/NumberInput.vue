@@ -1,12 +1,13 @@
 <template>
-  <input class="form-control" placeholder="" v-model="index">
+  <input class="form-control" :placeholder="placeholder" v-model="index">
 </template>
 
 <script>
 export default {
   name: 'number-input',
   props: {
-    value: { type: Number, default: () => null }
+    value: { type: Number, default: () => null },
+    placeholder: { type: String, default: () => '' }
   },
   watch: {
     index (val) {

@@ -33,6 +33,20 @@
           </router-link>
         </li>
 
+        <li :class="getActiveClass('menu')">
+          <router-link tag="a" to="/menu">
+            <span class="fa fa-cutlery"></span>
+            <span class="sidebar-title">メニュー</span>
+          </router-link>
+        </li>
+
+        <li :class="getActiveClass('sumally')">
+          <router-link tag="a" to="/sumally">
+            <span class="fa fa-bar-chart-o"></span>
+            <span class="sidebar-title">統計</span>
+          </router-link>
+        </li>
+
         <!-- <li>
           <router-link tag="a" to="/home">
             <span class="fa fa-list"></span>
@@ -85,6 +99,9 @@ export default {
   methods: {
     getActiveClass (linkName) {
       const routeName = this.$route.name
+      if (linkName === 'rsv') {
+        return routeName === 'cal' || routeName === 'rsv' ? 'active' : ''
+      }
       return linkName === routeName ? 'active' : ''
     }
   }

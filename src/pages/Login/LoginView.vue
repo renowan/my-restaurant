@@ -44,8 +44,8 @@
                     <span>ログイン</span>
                   </div>
                 </div>
-                <div class="col-xs-12 text-center mb8">
-                  現在はTwitterアカウントのみ対応
+                <div class="col-xs-12 mb16">
+                  現在はTwitterアカウントのみ対応です。お気軽にログインして触ってみてください。バグ報告大歓迎。
                 </div>
                 <div class="col-xs-12">
                   <a href="javascript:void(0)" class="button btn-social twitter span-left btn-block" @click="loginTiwtter">

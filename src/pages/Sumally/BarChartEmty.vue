@@ -3,27 +3,15 @@ import { Bar, mixins } from 'vue-chartjs'
 const { reactiveProp } = mixins
 
 export default {
-  name: 'bar-sample',
+  name: 'bar-chart-emty',
   extends: Bar,
   mixins: [reactiveProp],
   props: {
     chartData: { type: Object, default: () => {} },
     options: { type: Object, default: () => {} }
   },
-  data () {
-    return {
-
-    }
-  },
   mounted () {
     this.renderChart(this.chartData, this.options)
-  },
-  methods: {
-
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

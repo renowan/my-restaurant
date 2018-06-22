@@ -22,6 +22,30 @@ const obj = {
     minNum: 1,
     maxNum: 4,
     tag: '',
+  },
+  menu: {
+    name: '',
+    pic: {
+      image0: {
+        url: '',
+        coverMode: '',
+      },
+      image1: {
+        url: '',
+        coverMode: '',
+      },
+      image2: {
+        url: '',
+        coverMode: '',
+      }
+    },
+    mainPic: 0,
+    description: '',
+    price: 100,
+    discount: 0,
+    isNew: false,
+    allYouCanEat: false,
+    isLunchOnly: false
   }
 }
 
