@@ -7,6 +7,7 @@ import course from './modules/course'
 import rsv from './modules/rsv'
 import cal from './modules/cal'
 import sumally from './modules/sumally'
+import menu from './modules/menu'
 
 Vue.use(Vuex)
 
@@ -18,7 +19,8 @@ export default new Vuex.Store({
     course,
     rsv,
     cal,
-    sumally
+    sumally,
+    menu
   },
   strict: true,
   plugins: []

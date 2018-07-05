@@ -2,12 +2,16 @@ import mutations from './mutations'
 import actions from './actions'
 
 const state = {
-  list: []
+  list: [],
+  isLoaded: false,
+  isCreateMode: false,
+  editData: null
 }
 
 const getters = {
   state: state => state,
-  list: state => state.list
+  list: state => state.list,
+  editData: state => state.editData
 }
 
 export default {

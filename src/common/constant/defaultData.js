@@ -46,6 +46,21 @@ const obj = {
     isNew: false,
     allYouCanEat: false,
     isLunchOnly: false
+  },
+  course: {
+    enable: true,
+    name: '',
+    image: '',
+    description: '',
+    minNum: 2, // 最小人数
+    maxNum: 4, // 最大人数
+    menu: [
+      {
+        label: 'メイン',
+        products: []
+      }
+    ],
+    price: 1000
   }
 }
 

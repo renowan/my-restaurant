@@ -4,6 +4,7 @@ import * as types from './mutationTypes'
 // const uid = 'I2CI15NBmrVMSjQIEEdHZLW7lCj1'
 
 export default {
+  // タブ切り替え > 処理を取り直す
   async updateCurrentTab ({ commit, state, rootState }, tabIndex) {
     const uid = rootState.app.userInfo.uid
     // 一回リストをクリアする
@@ -23,6 +24,7 @@ export default {
     commit(types.UPDATE_PRODUCT_LIST, itemList)
     commit('app/UPDATE_ISLOADING', false, { root: true })
   },
+  // 初回用、タブ > メニュー get
   async getMenu ({ commit, state, rootState }, tabIdOrder) {
     const uid = rootState.app.userInfo.uid
     let tabList
@@ -71,14 +73,37 @@ export default {
 
     commit('app/UPDATE_ISLOADING', true, { root: true })
 
+    let newTabId
+
+    // 追加
     try {
-      await firestoreQuery.createTab(uid, tab)
+      newTabId = await firestoreQuery.createTab(uid, tab)
     } catch (err) {
       console.log('catch err', err)
     }
 
-    // カテゴリ最新情報
-    dispatch('getMenuTab')
+    let tabList
+
+    // 最新のタブリスト
+    try {
+      tabList = await firestoreQuery.getMenuTab(uid)
+    } catch (err) {
+      console.log('catch err', err)
+    }
+
+    // タブリスト更新
+    commit(types.UPDATE_TAB_LIST, tabList)
+
+    // 新タブIDは何番目にあるか
+    const targetIndex = tabList.findIndex((elm) => elm.id === newTabId)
+    console.log('tabList', tabList)
+    console.log('targetIndex', targetIndex)
+    commit(types.UPDATE_CURRENT_TAB, targetIndex)
+
+    // 新規タブなので、アイテムはない。アイテムリストをクリアする
+    commit(types.UPDATE_PRODUCT_LIST, [])
+
+    commit('app/UPDATE_ISLOADING', false, { root: true })
   },
 
   // カテゴリ名変更
@@ -110,6 +135,9 @@ export default {
     } catch (err) {
       console.log('catch err', err)
     }
+
+    commit(types.UPDATE_CURRENT_TAB, 0)
+
     // カテゴリ最新情報
     dispatch('getMenuTab')
   },
@@ -119,10 +147,12 @@ export default {
     const uid = rootState.app.userInfo.uid
     const tabId = state.tabList[state.currentTab].id
 
+    product.tabId = tabId
+
     commit('app/UPDATE_ISLOADING', true, { root: true })
 
     try {
-      await firestoreQuery.addProduct(uid, tabId, product)
+      await firestoreQuery.addProduct(uid, product)
     } catch (err) {
       console.log('catch err', err)
     }
@@ -135,10 +165,12 @@ export default {
     const uid = rootState.app.userInfo.uid
     const tabId = state.tabList[state.currentTab].id
 
+    product.tabId = tabId
+
     commit('app/UPDATE_ISLOADING', true, { root: true })
 
     try {
-      await firestoreQuery.updateProduct(uid, tabId, product)
+      await firestoreQuery.updateProduct(uid, product)
     } catch (err) {
       console.log('catch err', err)
     }

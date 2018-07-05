@@ -41,7 +41,8 @@ export const getMenuTab = (uid) => {
 
 export const createTab = (uid, tab) => {
   return db.collection(`users/${uid}/menu`).add(tab).then((doc) => {
-    return true
+    console.log('doc', doc.id)
+    return doc.id
   })
 }
 
@@ -59,7 +60,7 @@ export const deleteTab = (uid, tabId) => {
 }
 
 export const getMenuItem = (uid, tabId) => {
-  return db.collection(`users/${uid}/menu/${tabId}/item`).get().then((snapshot) => {
+  return db.collection(`users/${uid}/menuItem`).where('tabId', '==', tabId).get().then((snapshot) => {
     const list = []
     snapshot.forEach((doc) => {
       const data = doc.data()
@@ -71,18 +72,17 @@ export const getMenuItem = (uid, tabId) => {
 }
 
 // 商品追加
-export const addProduct = (uid, tabId, product) => {
-  return db.collection(`users/${uid}/menu/${tabId}/item`).add(product).then((doc) => {
+export const addProduct = (uid, product) => {
+  return db.collection(`users/${uid}/menuItem`).add(product).then((doc) => {
     return true
   })
 }
 
 // 商品更新
-export const updateProduct = (uid, tabId, product) => {
+export const updateProduct = (uid, product) => {
   const productId = product.id
   delete product.id
-  return db.doc(`users/${uid}/menu/${tabId}/item/${productId}/`).set(product).then((doc) => {
-    console.log('doc', doc)
+  return db.doc(`users/${uid}/menuItem/${productId}/`).set(product).then((doc) => {
     return true
   })
 }
@@ -91,5 +91,20 @@ export const updateProduct = (uid, tabId, product) => {
 export const deleteProduct = (uid, tabId, productId) => {
   return db.doc(`users/${uid}/menu/${tabId}/item/${productId}`).delete().then((doc) => {
     return true
+  })
+}
+
+/*
+ * コース
+ */
+export const getCourse = (uid) => {
+  return db.collection(`users/${uid}/course`).get().then((snapshot) => {
+    const list = []
+    snapshot.forEach((doc) => {
+      const data = doc.data()
+      data.id = doc.id
+      list.push(data)
+    })
+    return list
   })
 }

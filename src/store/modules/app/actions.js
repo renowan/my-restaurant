@@ -74,19 +74,19 @@ export default {
     defaultTableData.name = 'デフォルトテーブル'
     defaultTableData.createdAt = firebase.firestore.FieldValue.serverTimestamp()
     const tableRef = db.collection('users').doc(user.uid).collection('table').add(defaultTableData)
-    const courseRef = db.collection('users').doc(user.uid).collection('course').add({
-      name: 'デフォルトコース',
-      menu: {
-        drink: [],
-        food: []
-      },
-      price: 3000,
-      minNum: 1,
-      maxNum: 4,
-    })
+    // const courseRef = db.collection('users').doc(user.uid).collection('course').add({
+    //   name: 'デフォルトコース',
+    //   menu: {
+    //     drink: [],
+    //     food: []
+    //   },
+    //   price: 3000,
+    //   minNum: 1,
+    //   maxNum: 4,
+    // })
     const tabRef = db.collection(`users/${user.uid}/menu`).add({ name: 'メイン' })
 
-    Promise.all([userRef, tableRef, courseRef, tabRef]).then((response) => {
+    Promise.all([userRef, tableRef, tabRef]).then((response) => {
       dispatch('loadAllData', user.uid)
     })
   },
@@ -96,8 +96,8 @@ export default {
     }
     const userGet = db.doc(`users/${uid}`).get()
     const tableGet = db.collection(`users/${uid}/table`).orderBy('createdAt', 'desc').get()
-    const courseGet = db.collection(`users/${uid}/course`).get()
-    Promise.all([getServerTime(), userGet, tableGet, courseGet]).then((response) => {
+    // const courseGet = db.collection(`users/${uid}/course`).get()
+    Promise.all([getServerTime(), userGet, tableGet]).then((response) => {
       // サーバー時間
       const serverTime = response[0].data.time
       dispatch('updateServerTime', serverTime)
@@ -119,14 +119,14 @@ export default {
       commit('table/UPDATE_LIST', tableList, {root: true})
 
       // course処理
-      const courseQs = response[3]
-      const courseList = []
-      courseQs.forEach((doc) => {
-        const data = doc.data()
-        data.id = doc.id
-        courseList.push(data)
-      })
-      commit('course/UPDATE_LIST', courseList, {root: true})
+      // const courseQs = response[3]
+      // const courseList = []
+      // courseQs.forEach((doc) => {
+      //   const data = doc.data()
+      //   data.id = doc.id
+      //   courseList.push(data)
+      // })
+      // commit('course/UPDATE_LIST', courseList, {root: true})
 
       // isAppLoaded = true
       commit('UPDATE_IS_APP_LOADED', true)

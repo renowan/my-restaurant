@@ -1,15 +1,17 @@
 <template>
   <div class="page-tabs">
     <ul class="nav nav-tabs">
-      <li :class="activeClass(0)" @click="localValue = 0">
-        <a href="javascript:void(0)">メイン</a>
+
+      <li v-for="(item, index) in tabList"
+      :key="index"
+      :class="activeClass(index)"
+      @click="localValue = index">
+        <a href="javascript:void(0)">{{item.name}}</a>
       </li>
-      <li :class="activeClass(1)" @click="localValue = 1">
-        <a href="javascript:void(0)">飲み物</a>
-      </li>
+
     </ul>
-    <button type="button" class="btn btn-default btn-sm btn-plus">
-      <i class="fa fa-plus"></i> タブ追加
+    <button type="button" class="btn btn-default btn-sm btn-plus" @click="newTab" v-if="tabList.length">
+      <i class="fa fa-plus"></i> カテゴリ追加
     </button>
   </div>
 </template>
@@ -18,7 +20,8 @@
 export default {
   name: 'tab',
   props: {
-    value: { type: Number, required: true }
+    value: { type: Number, required: true },
+    tabList: { type: Array, default: () => [] }
   },
   components: {
 
@@ -47,6 +50,9 @@ export default {
   methods: {
     activeClass (index) {
       return index === this.localValue ? 'active' : ''
+    },
+    newTab () {
+      this.$emit('new-tab')
     }
   }
 }
