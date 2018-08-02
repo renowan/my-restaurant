@@ -64,7 +64,9 @@
         :onSelectId="onSelectId"
         :rsvList="rsv.list"
         :tableList="tableList"
+        :courseList="courseList"
         :uiLoadingList="app.uiLoadingList"
+        @show-course-detail="showCourseDetail"
         @rsv-action="rsvAction">
         </detailView>
       </div>
@@ -90,11 +92,20 @@
     :modalType="modalType"
     :editData="editData"
     :tableList="tableList"
-    :createRequest="createRequest"
     :courseList="courseList"
+    :createRequest="createRequest"
     @create-rsv="createRsvExe"
     @close-create-modal="closeCreateModal">
     </createRsvModal>
+
+    <courseModal
+    :showModal="showCourseModal"
+    :courseId="courseId"
+    :courseList="courseList"
+    :productObj="productObj"
+    @close-create-modal="showCourseModal = false">
+
+    </courseModal>
 
   </content-wrapper>
 </template>
@@ -111,6 +122,7 @@ import listView from './ListView/ListView'
 import detailView from './DetailView/DetailView'
 import createRsvModal from './CreateRsvModal/CreateRsvModal'
 import deleteModal from './DeleteModal/DeleteModal'
+import courseModal from './CourseModal/CourseModal'
 
 const changeDateFormat = (val, format) => {
   if (val.indexOf('/') > -1) {
@@ -133,13 +145,16 @@ export default {
     listView,
     detailView,
     createRsvModal,
-    deleteModal
+    deleteModal,
+    courseModal
   },
   computed: Object.assign({},
     mapGetters({
       app: 'app/state',
       rsv: 'rsv/state',
-      tableList: 'table/list'
+      tableList: 'table/list',
+      courseList: 'course/list',
+      productObj: 'course/productObj',
     }),
     {
       calValue: {
@@ -172,12 +187,14 @@ export default {
       showDeleteModal: false,
       modalType: 'create',
       editData: null,
-      courseList: [
-        { name: '未選択', id: null },
-        { name: 'コース1', id: 'abd1' },
-        { name: 'コース2', id: 'abd2' },
-        { name: 'コース3', id: 'abd3' },
-      ],
+      showCourseModal: false,
+      courseId: '',
+      // courseList: [
+      //   { name: '未選択', id: null },
+      //   { name: 'コース1', id: 'abd1' },
+      //   { name: 'コース2', id: 'abd2' },
+      //   { name: 'コース3', id: 'abd3' },
+      // ],
       isListMode: true
     }
   },
@@ -216,7 +233,7 @@ export default {
     init () {
       let date = this.$route.params.date
       if (date === 'none') {
-        date = this.app.serverTime.yyyymmdd || '20180401'
+        date = this.app.serverTime.yyyymmdd
       }
       this.date = date
       if (this.app.isDebug) return
@@ -246,7 +263,6 @@ export default {
       this.isListMode = val
     },
     rsvAction (e) {
-      console.log('action', e)
       const { action, id } = e
       switch (action) {
         case 'edit':
@@ -298,13 +314,16 @@ export default {
     },
     goPrveDay () {
       const date = moment(this.calValue).subtract(1, 'day').format('YYYY/MM/DD')
-      console.log(date)
       this.calValue = date
     },
     goNextDay () {
       const date = moment(this.calValue).add(1, 'day').format('YYYY/MM/DD')
-      console.log(date)
       this.calValue = date
+    },
+    showCourseDetail (courseId) {
+      console.log('showCourseDetail', courseId)
+      this.courseId = courseId
+      this.showCourseModal = true
     }
   }
 }

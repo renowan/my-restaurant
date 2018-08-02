@@ -5,22 +5,17 @@
         <h3 class="mt24">コース一覧</h3>
       </div>
       <div class="col-xs-4 text-right">
-        <button type="button" class="btn btn-default mt16" @click="createCourse">
+        <button type="button" class="btn btn-default mt16" @click="goCreateCourse">
           新規コース
         </button>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <productPanel></productPanel>
+        <productPanel v-for="(item, index) in list" :key="index" :item="item" :taxRate="app.taxRate"></productPanel>
       </div>
       <div class="col-xs-12" v-if="noCourse">
         コースがない
-      </div>
-      <div class="col-xs-12" v-else>
-        <ul>
-          <li v-for="(item, index) in list" :key="index">item.name</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -56,12 +51,10 @@ export default {
     }
   },
   created () {
-    console.log('list created', this.$route)
-    this.$store.dispatch('course/getCourse')
+    // this.$store.dispatch('course/getCourse')
   },
   methods: {
-    createCourse () {
-      this.$store.dispatch('course/createCourse')
+    goCreateCourse () {
       this.$router.push({ name: 'course-create' })
     }
   }

@@ -35,9 +35,6 @@
     </div>
 
     <div slot="topBarRight">
-      <button type="button" class="btn btn-default btn-sm">
-        x
-      </button>
     </div>
 
   </content-wrapper>

@@ -5,13 +5,22 @@ const state = {
   list: [],
   isLoaded: false,
   isCreateMode: false,
-  editData: null
+  editData: null,
+  data: null,
+  tabList: [],
+  productList: [],
+  productObj: {},
+  isSaved: false
 }
 
 const getters = {
   state: state => state,
   list: state => state.list,
-  editData: state => state.editData
+  data: state => state.data,
+  editData: state => state.editData,
+  tabList: state => state.tabList,
+  productList: state => state.productList,
+  productObj: state => state.productObj,
 }
 
 export default {

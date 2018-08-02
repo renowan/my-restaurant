@@ -3,7 +3,7 @@
 
     <GlobalHeader @toggle-navi="toggleNavi" :isLogin="app.isLogin" :userInfo="app.userInfo" @logout="logout"></GlobalHeader>
 
-    <GlobalAside></GlobalAside>
+    <GlobalAside v-if="app.isLogin"></GlobalAside>
 
     <router-view v-if="isAppLoaded"></router-view>
 
@@ -88,13 +88,9 @@ export default {
           this.isWide = false
         }
       }
-      // console.log('windowResize', window.innerWidth)
     },
     logout () {
-      this.$store.dispatch('app/loginOut').then(() => {
-        // ログアウトできた
-        this.$router.push('/login')
-      })
+      this.$store.dispatch('app/loginOut')
     }
   }
 }

@@ -1,20 +1,20 @@
 <template>
   <div class="panel">
-    <div class="panel-body pb5">
-      <div class="product">
-        <div class="image-wrapper">
-          <img src="/static/assets/img/stock/1.jpg">
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-xs-3">
+          <img src="/static/assets/img/stock/1.jpg" class="course-img">
         </div>
-        <div class="product-main">
+        <div class="col-xs-9 col-md-5">
           <div class="product-main-title">
-            <a href="javascript:void(0)" class="product-name" @click="editProduct">dddd</a>
-            <span class="label label-warning">NEW</span>
+            <router-link :to="{ name: 'course-detail', params: { id: item.id } }" class="product-name">{{item.name}}</router-link>
           </div>
-          <div class="txt">
-            xxxxxx
+          <div class="course-text">
+            {{item.description}}
           </div>
         </div>
-        <div class="price-wrapper">
+        <div class="col-xs-6 col-md-4 pull-right">
           <table class="table table-condensed">
             <thead>
               <tr>
@@ -26,13 +26,14 @@
             <tbody>
               <tr>
                 <td>定価</td>
-                <td>cdd</td>
-                <td>cdd</td>
+                <td>{{item.price}}</td>
+                <td>{{inTax}}</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -40,11 +41,17 @@
 <script>
 export default {
   name: 'product-panel',
+  props: {
+    item: { typs: Object, required: true },
+    taxRate: { type: Number, default: () => 1 }
+  },
   components: {
 
   },
   computed: {
-
+    inTax () {
+      return Math.round(this.item.price * this.taxRate)
+    }
   },
   watch: {
 
@@ -66,71 +73,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.product {
-  display: table;
+.course-img {
   width: 100%;
-  padding-bottom: 24px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid #e5e5e5;
-  min-height: 79px;
+  // max-height: 100px;
+  margin-right: 16px;
+}
 
-  &:last-child {
-    padding-bottom: 0;
-    border-width: 0;
-  }
+.course-text {
+  margin-bottom: 16px;
+}
+a.product-name {
+  font-size: 15px;
+  font-weight: bold;
+}
 
-  .image-wrapper {
-    display: table-cell;
-    width: 112px;
-    vertical-align: top;
+.waribiki {
+  width: 70px;
+}
 
-    img {
-      width: 100px;
-      height: 72px;
-    }
-  }
-  .product-main {
-    display: table-cell;
-    vertical-align: top;
-    padding-right: 16px;
-    a.product-name {
-      font-size: 15px;
-      font-weight: bold;
-    }
-    .txt {
-      margin-top: 4px;
-    }
-    .label {
-      position: relative;
-      top: -3px;
-      padding: .3em .7em .2em;
-    }
-  }
-  .price-wrapper {
-    display: table-cell;
-    width: 240px;
-    padding-left: 16px;
-    padding-top: 8px;
-    // text-align: center;
-    vertical-align: middle;
-    border-left: 1px solid #e5e5e5;
-    font-size: 13px;
-
-    .lth {
-      text-decoration: line-through;
-    }
-    .fa-angle-right {
-      margin: 0 8px;
-    }
-    .waribiki {
-      width: 70px;
-    }
-    .tax-in {
-      width: 74px;
-    }
-    .tax-out {
-      width: 74px;
-    }
-  }
+.tax-in {
+  width: 74px;
+}
+.tax-out {
+  width: 74px;
 }
 </style>

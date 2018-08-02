@@ -33,6 +33,13 @@
           </router-link>
         </li>
 
+        <li :class="getActiveClass('course')">
+          <router-link tag="a" to="/course">
+            <span class="fa fa-list"></span>
+            <span class="sidebar-title">コース</span>
+          </router-link>
+        </li>
+
         <li :class="getActiveClass('menu')">
           <router-link tag="a" to="/menu">
             <span class="fa fa-cutlery"></span>
@@ -46,13 +53,6 @@
             <span class="sidebar-title">統計</span>
           </router-link>
         </li>
-
-        <!-- <li>
-          <router-link tag="a" to="/home">
-            <span class="fa fa-list"></span>
-            <span class="sidebar-title">コース</span>
-          </router-link>
-        </li> -->
 
         <!-- <li class="">
           <a href="base-setting.html">

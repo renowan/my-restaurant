@@ -1,28 +1,34 @@
+import * as firestoreQuery from '@/store/firestoreQuery.js'
 import { cloneDeep } from 'lodash'
-// import * as types from './mutationTypes'
+import * as types from './mutationTypes'
 
 const firebase = window.firebase
 const db = firebase.firestore()
 
 export default {
-  // メッセージ定型文一覧の取得
-  getRsvByDate ({ commit, state, rootState }, order) {
+  // 指定日付の予約を取得
+  async getRsvByDate ({ commit, state, rootState }, order) {
     const { date, isShowLoading } = order
+
     // loading処理
     if (isShowLoading) commit('app/UPDATE_ISLOADING', true, { root: true })
-    commit('UPDATE_DATE', date)
+
+    // 日付更新
+    commit(types.UPDATE_DATE, date)
+
     const uid = rootState.app.userInfo.uid
     const yyyymm = date.slice(0, 6)
-    const rsvRef = db.collection(`users/${uid}/db/${yyyymm}/rsv`)
-    const queryRef = rsvRef.where('date', '==', Number(date)).orderBy('createdAt')
 
-    const list = []
-    queryRef.get().then((snapshot) => {
-      snapshot.forEach((doc) => {
-        const obj = Object.assign({}, { id: doc.id }, doc.data())
-        list.push(obj)
-      })
-      commit('UPDATE_LIST', list)
+    Promise.all([
+      firestoreQuery.getRsvByDate(uid, yyyymm, date),
+      firestoreQuery.getTableList(uid),
+      firestoreQuery.getCourse(uid),
+      firestoreQuery.getAllProduct(uid),
+    ]).then((response) => {
+      commit('table/UPDATE_LIST', response[1], { root: true })
+      commit('course/UPDATE_LIST', response[2], { root: true })
+      commit('course/GET_ALL_PRODUCT_LIST', response[3], { root: true })
+      commit(types.UPDATE_LIST, response[0])
       if (isShowLoading) commit('app/UPDATE_ISLOADING', false, { root: true })
     })
   },
@@ -38,7 +44,7 @@ export default {
 
     db.collection(`users/${uid}/db/${yyyymm}/rsv`).add(rsv).then((doc) => {
       commit('app/UPDATE_ISLOADING', false, { root: true })
-      commit('UPDATE_SAVED', true)
+      commit(types.UPDATE_SAVED, true)
     })
   },
 
@@ -127,7 +133,6 @@ export default {
       dispatch('createRsv', rsv).then(() => {
         dispatch('delete', originRsv).then(() => {
           dispatch('getRsvByDate', { date: state.date, isShowLoading: false }).then(() => {
-            console.log('addUiLoadingList remove')
             // loading処理
             dispatch('app/addUiLoadingList', {
               action: 'remove',

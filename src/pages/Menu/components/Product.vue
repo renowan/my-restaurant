@@ -165,7 +165,7 @@ export default {
     padding-top: 8px;
     // text-align: center;
     vertical-align: middle;
-    border-left: 1px solid #e5e5e5;
+    // border-left: 1px solid #e5e5e5;
     font-size: 13px;
 
     .lth {

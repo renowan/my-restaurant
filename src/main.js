@@ -19,45 +19,40 @@ new Vue({
     mapGetters({
       app: 'app/state'
     }),
-    {
-    }
+    {}
   ),
-  data () {
-    return {
-      isDebug: false
-    }
-  },
-  watch: {
-    'app.isAppLoaded' (val) {
-      // this.$store.commit('app/UPDATE_ISLOADING', false)
-      // const pageName = this.$route.name
-      // if (pageName === 'login' || pageName === 'start') {
-      //   this.$router.push('/home')
-      // }
-    }
-  },
   created () {
     // this.$store.commit('app/SET_IS_DEBUG')
     if (this.app.isDebug) {
       console.log('debug')
     } else {
+      // loadingを出しておく
       this.$store.commit('app/UPDATE_ISLOADING', true)
+
+      // ログイン状態が変更されたとき
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          this.user = user
-          this.$store.dispatch('app/appInit', user)
-          this.$store.commit('app/UPDATE_IS_LOGIN', true)
+          // ログイン状態
+          this.$store.dispatch('app/getHasUserData', user.uid).then((result) => {
+            if (result) {
+              // すでにログインしている場合はここまで
+              if (this.app.isOnLoginProcessing) return
+              // ユーザー存在
+              this.$store.dispatch('app/autoLogin', user)
+            } else {
+              // ユーザー存在しない、データを作成へ
+              this.$store.dispatch('app/createUser', user)
+              this.$router.push('/home')
+            }
+          })
         } else {
-          // No user is signed in.
+          // ログアウト状態
           this.$store.commit('app/UPDATE_ISLOADING', false)
           this.$store.commit('app/UPDATE_IS_APP_LOADED', true)
           this.$router.push('/login')
         }
       })
     }
-  },
-  methods: {
-
   },
   components: { App },
   template: '<App/>'

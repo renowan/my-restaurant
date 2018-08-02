@@ -36,5 +36,8 @@ export default {
   },
   [types.UPDATE_UI_LOADING_LIST] (state, list) {
     state.uiLoadingList = list
+  },
+  [types.UPDATE_IS_ON_LOGIN_PROCESSING] (state, data) {
+    state.isOnLoginProcessing = data
   }
 }

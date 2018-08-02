@@ -1,138 +1,123 @@
 import moment from 'moment'
-import axios from 'axios'
 import { remove } from 'lodash'
 import * as types from './mutationsTypes'
 import { getDefaultData } from '@/common/constant/defaultData'
+import * as firestoreQuery from '@/store/firestoreQuery.js'
 
 moment.updateLocale('ja')
 
-const firebase = window.firebase
-const db = firebase.firestore()
-const provider = new firebase.auth.TwitterAuthProvider()
-
 // actions
 export default {
-  login ({commit, state, dispatch}, order) {
-    commit('UPDATE_ISLOADING', true)
+  // ユーザー存在するか
+  getHasUserData ({commit, state, dispatch}, uid) {
     return new Promise((resolve, reject) => {
-      if (order) {
-        console.log('メールログイン')
-        const { mail, password } = order
-        firebase.auth().signInWithEmailAndPassword(mail, password).then((result) => {
-          commit('UPDATE_IS_LOGIN', true)
-          commit('UPDATE_ISLOADING', false)
-          resolve()
-        }).catch((error) => {
-          console.log('error', error)
-        })
-      } else {
-        console.log('ソーシャルログイン')
-        firebase.auth().signInWithPopup(provider).then((result) => {
-          commit('UPDATE_IS_LOGIN', true)
-          commit('UPDATE_ISLOADING', false)
-          resolve()
-        }).catch((error) => {
-          console.log('error', error)
-        })
-      }
-    })
-  },
-  loginOut ({commit, state, dispatch}) {
-    commit('UPDATE_IS_LOGIN', true)
-    return new Promise((resolve, reject) => {
-      firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        commit('UPDATE_IS_LOGIN', false)
-        resolve()
-      }).catch((error) => {
-        console.log('error', error)
+      firestoreQuery.getHasUserData(uid).then((response) => {
+        resolve(response)
       })
     })
   },
-  appInit ({commit, state, dispatch}, user) {
-    // commit('UPDATE_USER_INFO', user)
-    db.doc('users/' + user.uid).get().then((qs) => {
-      if (qs.exists) {
-        console.log('存在')
-        dispatch('loadAllData', user.uid)
-        return null
-      } else {
-        // ユーザー存在しない
-        console.log('ユーザー存在しない')
-        dispatch('createUser', user)
-      }
+  async autoLogin ({commit, state, dispatch}, user) {
+    commit('UPDATE_ISLOADING', true)
+    commit('UPDATE_USER_INFO', {
+      uid: user.uid,
+      name: user.displayName,
+      email: user.email
     })
+
+    let serverTime
+
+    try {
+      serverTime = await firestoreQuery.getServerTime()
+    } catch (err) {
+      console.log('catch err', err)
+    }
+
+    dispatch('updateServerTime', serverTime)
+    // Loading
+    commit('UPDATE_ISLOADING', false)
+    // ログイン状態更新
+    commit('UPDATE_IS_LOGIN', true)
+    // app load完了
+    commit('UPDATE_IS_APP_LOADED', true)
+  },
+  async login ({commit, state, dispatch}) {
+    commit('UPDATE_IS_ON_LOGIN_PROCESSING', true)
+    commit('UPDATE_ISLOADING', true)
+
+    return new Promise((resolve, reject) => {
+      let serverTime, loginResult
+
+      Promise.all([
+        firestoreQuery.getServerTime(),
+        firestoreQuery.twitterAuth()
+      ]).then((response) => {
+        serverTime = response[0]
+        loginResult = response[1]
+
+        dispatch('updateServerTime', serverTime)
+
+        const user = loginResult.user
+
+        commit('UPDATE_USER_INFO', {
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email
+        })
+
+        // Loading
+        commit('UPDATE_ISLOADING', false)
+        // ログイン状態更新
+        commit('UPDATE_IS_LOGIN', true)
+        // app load完了
+        commit('UPDATE_IS_APP_LOADED', true)
+
+        resolve()
+      })
+    })
+  },
+  async loginOut ({commit, state, dispatch}) {
+    commit('UPDATE_ISLOADING', true)
+
+    try {
+      await firestoreQuery.loginOut()
+    } catch (err) {
+      console.log('catch err', err)
+    }
+    commit('UPDATE_IS_ON_LOGIN_PROCESSING', false)
+    commit('UPDATE_ISLOADING', false)
+    commit('UPDATE_IS_LOGIN', false)
   },
   // ユーザーデータ生成
   createUser ({commit, state, dispatch}, user) {
-    const userRef = db.doc('users/' + user.uid).set({
+    const uid = user.uid
+
+    const userData = {
       name: user.displayName || '未設定',
       email: user.email || '',
-      serverTime: firebase.firestore.FieldValue.serverTimestamp()
-    })
+    }
+
     const defaultTableData = getDefaultData('table')
     defaultTableData.name = 'デフォルトテーブル'
-    defaultTableData.createdAt = firebase.firestore.FieldValue.serverTimestamp()
-    const tableRef = db.collection('users').doc(user.uid).collection('table').add(defaultTableData)
-    // const courseRef = db.collection('users').doc(user.uid).collection('course').add({
-    //   name: 'デフォルトコース',
-    //   menu: {
-    //     drink: [],
-    //     food: []
-    //   },
-    //   price: 3000,
-    //   minNum: 1,
-    //   maxNum: 4,
-    // })
-    const tabRef = db.collection(`users/${user.uid}/menu`).add({ name: 'メイン' })
 
-    Promise.all([userRef, tableRef, tabRef]).then((response) => {
-      dispatch('loadAllData', user.uid)
+    commit('UPDATE_USER_INFO', {
+      name: user.displayName || '未設定',
+      uid: user.uid,
+      email: user.email
     })
-  },
-  loadAllData ({commit, state, dispatch}, uid) {
-    const getServerTime = () => {
-      return axios.get('https://us-central1-myrestaurant-4b36a.cloudfunctions.net/getServerTime')
-    }
-    const userGet = db.doc(`users/${uid}`).get()
-    const tableGet = db.collection(`users/${uid}/table`).orderBy('createdAt', 'desc').get()
-    // const courseGet = db.collection(`users/${uid}/course`).get()
-    Promise.all([getServerTime(), userGet, tableGet]).then((response) => {
-      // サーバー時間
-      const serverTime = response[0].data.time
-      dispatch('updateServerTime', serverTime)
 
-      // ユーザー処理
-      const userQs = response[1]
-      const userData = userQs.data()
-      userData.uid = uid
-      commit('UPDATE_USER_INFO', userData)
-
-      // テーブル処理
-      const tableQs = response[2]
-      const tableList = []
-      tableQs.forEach((doc) => {
-        const data = doc.data()
-        data.id = doc.id
-        tableList.push(data)
-      })
-      commit('table/UPDATE_LIST', tableList, {root: true})
-
-      // course処理
-      // const courseQs = response[3]
-      // const courseList = []
-      // courseQs.forEach((doc) => {
-      //   const data = doc.data()
-      //   data.id = doc.id
-      //   courseList.push(data)
-      // })
-      // commit('course/UPDATE_LIST', courseList, {root: true})
-
-      // isAppLoaded = true
-      commit('UPDATE_IS_APP_LOADED', true)
-
-      // isLoadingを落とす
+    Promise.all([
+      firestoreQuery.getServerTime(),
+      firestoreQuery.createUser(uid, userData),
+      firestoreQuery.createTable(uid, defaultTableData),
+      firestoreQuery.createTab(uid, { name: 'メイン', index: 0 })
+    ]).then((response) => {
+      dispatch('updateServerTime', response[0])
+      // Loading
       commit('UPDATE_ISLOADING', false)
+      // ログイン状態更新
+      commit('UPDATE_IS_LOGIN', true)
+      // app load完了
+      commit('UPDATE_IS_APP_LOADED', true)
     })
   },
   updateServerTime ({commit, state}, serverTime) {

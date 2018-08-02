@@ -34,7 +34,6 @@ export default {
   },
   methods: {
     editProduct (product) {
-      console.log('panel', product)
       this.$emit('edit-product', product)
     }
   }

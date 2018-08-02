@@ -12,6 +12,8 @@ const getters = {
 // initial state
 const state = {
   isLogin: false,
+  // ログイン処理中
+  isOnLoginProcessing: false,
   isDebug: false,
   isLoading: false,
   userInfo: null,

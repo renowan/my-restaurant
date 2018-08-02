@@ -5,6 +5,7 @@
       <rsv-form-set
       :rsv-data="rsvData"
       :tableList="tableList"
+      :courseList="courseListLocal"
       :numError="numError"
       :nameError="nameError"
       :payError="payError"
@@ -37,6 +38,7 @@ export default {
     today: { type: String, default: () => 20181201 },
     modalType: { type: String, default: () => 'create' },
     tableList: { type: Array, default: () => [] },
+    courseList: { type: Array, default: () => [] },
     editData: { type: Object, default: () => null },
     createRequest: { type: Object, default: () => null }
   },
@@ -74,6 +76,7 @@ export default {
       nameError: false,
       payError: false,
       tableFrameError: false,
+      courseListLocal: []
     }
   },
   created () {
@@ -91,6 +94,10 @@ export default {
       } else {
         this.rsvData = Object.assign({}, this.editData)
       }
+      this.courseListLocal = [{
+        name: '未設定',
+        id: ''
+      }].concat(this.courseList)
       // this.resetData()
     },
     cancelAction () {

@@ -50,14 +50,27 @@ const obj = {
   course: {
     enable: true,
     name: '',
-    image: '',
     description: '',
+    pic: {
+      image0: {
+        url: '',
+        coverMode: '',
+      },
+      image1: {
+        url: '',
+        coverMode: '',
+      },
+      image2: {
+        url: '',
+        coverMode: '',
+      }
+    },
     minNum: 2, // 最小人数
     maxNum: 4, // 最大人数
-    menu: [
+    itemGroup: [
       {
-        label: 'メイン',
-        products: []
+        name: '',
+        item: []
       }
     ],
     price: 1000

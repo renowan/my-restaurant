@@ -77,8 +77,21 @@
     </div>
     <div class="col-xs-3">
       <div class="form-group" :class="{'has-error': tableFrameError}">
-        <label for="inputStandard" class="control-label">テーブルフレーム <span class="text-danger">*</span></label>
+        <label for="inputStandard" class="control-label">テーブル枠数 <span class="text-danger">*</span></label>
         <numberInput v-model="localData.tableFrame" placeholder=""></numberInput>
+      </div>
+    </div>
+    <div class="col-xs-12 mb16">
+      <div>
+        <label for="inputStandard" class="control-label">コース</label>
+      </div>
+      <div class="btn-group-justified">
+        <v-select v-model="localData.courseId" :options="courseList" options-value="id" options-label="name"
+        :limit="3"
+        placeholder="コースを選択"
+        search justified
+        close-on-select>
+        </v-select>
       </div>
     </div>
     <div class="col-xs-12">
@@ -113,6 +126,7 @@ export default {
   props: {
     rsvData: { type: Object, required: true },
     tableList: { type: Array, default: () => [] },
+    courseList: { type: Array, default: () => [] },
     numError: { type: Boolean, default: () => false },
     nameError: { type: Boolean, default: () => false },
     payError: { type: Boolean, default: () => false },

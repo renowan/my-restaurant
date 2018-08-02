@@ -4,9 +4,9 @@
       <a class="navbar-brand" href="dashboard.html">
         My<b> Restaurant</b>
       </a>
-      <span id="toggle_sidemenu_l" class="ad ad-lines" @click="toggleNavi"></span>
+      <span id="toggle_sidemenu_l" class="ad ad-lines" v-if="isLogin" @click="toggleNavi"></span>
     </div>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" v-if="isLogin">
       <li class="dropdown" v-if="userInfo !== null">
         <span class="user-name">ユーザー名: {{userInfo.name}}</span>
       </li>

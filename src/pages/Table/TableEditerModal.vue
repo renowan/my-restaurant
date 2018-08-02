@@ -36,7 +36,6 @@ export default {
       }
     },
     table (val) {
-      console.log('table was change', val)
       this.localData = val
     }
   },

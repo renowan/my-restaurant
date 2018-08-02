@@ -14,7 +14,14 @@
     <div class="d-label">利用時間</div>
     <div class="d-txt">{{useTime}}</div>
     <div class="d-label">テーブル</div>
-    <div class="d-txt">{{tableName}}</div>
+    <div class="d-txt">{{tableName}} / {{rsv.tableFrame}}枠</div>
+    <div class="d-label">コース</div>
+    <div v-if="noCourse" class="d-txt">{{courseName}}</div>
+    <div v-else class="d-txt">
+      <a href="javascript:void(0)" class="" @click="showCourseDetail">
+        {{courseName}} <i class="fa fa-external-link"></i>
+      </a>
+    </div>
     <!-- <div class="d-label">コース</div> -->
     <!-- <div class="d-txt">なんとか名前のコース</div> -->
 
@@ -30,7 +37,6 @@
 </template>
 
 <script>
-// import { cloneDeep } from 'lodash'
 import * as timeUtility from '@/common/utils/timeUtility'
 import stateLabel from './StateLabel'
 
@@ -40,6 +46,7 @@ export default {
     onSelectId: { type: String, default: () => '' },
     rsvList: { type: Array, default: () => [] },
     tableList: { type: Array, default: () => [] },
+    courseList: { type: Array, default: () => [] },
     uiLoadingList: { type: Array, default: () => [] }
   },
   components: {
@@ -51,7 +58,14 @@ export default {
       const tableId = this.rsv.tableId
       if (tableId === '') return '未設定'
       const targetTable = this.tableList.filter((table) => table.id === tableId)[0]
-      return targetTable.name
+      return targetTable.name || '不明'
+    },
+    courseName () {
+      if (!this.rsv) return ''
+      const courseId = this.rsv.courseId
+      if (courseId === '') return '未設定'
+      const targetCourse = this.courseList.filter((course) => course.id === courseId)[0]
+      return targetCourse.name || '不明'
     },
     startTime () {
       return timeUtility.getTimeStrFromPoint(this.rsv.start)
@@ -68,6 +82,9 @@ export default {
       if (!onSelectId) return false
       return this.uiLoadingList.indexOf(onSelectId) > -1
     },
+    noCourse () {
+      return this.rsv.courseId === ''
+    }
   },
   watch: {
     onSelectId () {
@@ -103,6 +120,9 @@ export default {
         action: 'delete',
         id: this.rsv.id
       })
+    },
+    showCourseDetail () {
+      this.$emit('show-course-detail', this.rsv.courseId)
     }
   }
 }
